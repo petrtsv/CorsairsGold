@@ -14,11 +14,9 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 public class GameBackground extends Actor
 {
-	GameWorld world;
-
 	public static final int ISLE_WIDTH = 100;
 	public static final int ISLE_HEIGHT = 100;
-
+	GameWorld world;
 	private TextureRegion isleRegion;
 	private Sprite isleSprite;
 
@@ -41,7 +39,8 @@ public class GameBackground extends Actor
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
-		if (world.getShapeRenderer().isDrawing()) {
+		if (world.getShapeRenderer().isDrawing())
+		{
 			world.getShapeRenderer().end();
 		}
 		if (!batch.isDrawing())

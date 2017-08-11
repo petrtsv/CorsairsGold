@@ -6,8 +6,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
-import site.petrtsv.corsairs.actors.ui.labels.LowerLabel;
 import site.petrtsv.corsairs.actors.ui.buttons.PauseButton;
+import site.petrtsv.corsairs.actors.ui.labels.LowerLabel;
 import site.petrtsv.corsairs.models.GameWorld;
 
 /**

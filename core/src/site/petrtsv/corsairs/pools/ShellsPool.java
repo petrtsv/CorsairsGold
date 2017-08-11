@@ -5,7 +5,6 @@ import com.badlogic.gdx.utils.Array;
 
 import site.petrtsv.corsairs.actors.Shell;
 import site.petrtsv.corsairs.groups.ShellsGroup;
-import site.petrtsv.corsairs.models.GameWorld;
 
 
 /**

@@ -13,20 +13,19 @@ import site.petrtsv.corsairs.groups.UIGroup;
 
 public class FontManager
 {
+	private static final FontManager ourInstance = new FontManager();
 	private final String ROBOTO_BOLD_PATH = "fonts/roboto_bold.ttf";
 	private final String KENPIXEL_BLOCKS_PATH = "fonts/kenpixel_blocks.ttf";
 	private BitmapFont mainUI;
 	private BitmapFont largeHeader;
 
-	private static final FontManager ourInstance = new FontManager();
+	private FontManager()
+	{
+	}
 
 	public static FontManager getInstance()
 	{
 		return ourInstance;
-	}
-
-	private FontManager()
-	{
 	}
 
 	public void loadFonts()

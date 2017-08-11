@@ -121,8 +121,8 @@ public class Shell extends Actor implements Destructible
 			sprite.setRotation(rotation);
 			sprite.setCenter(position.x, position.y);
 			sprite.draw(batch, parentAlpha);
-		}
-		else if (state == ShellState.EXPLOSION) {
+		} else if (state == ShellState.EXPLOSION)
+		{
 			TextureRegion current = explosionAnimation.getKeyFrame(destructionTime);
 			sprite.setRegion(current);
 			sprite.setSize(current.getRegionWidth() * EXPLOSION_SCALE,
@@ -153,10 +153,11 @@ public class Shell extends Actor implements Destructible
 				world.onShellCollision();
 				setState(ShellState.EXPLOSION);
 			}
-		}
-		else if (state == ShellState.EXPLOSION) {
+		} else if (state == ShellState.EXPLOSION)
+		{
 			destructionTime += delta;
-			if (destructionTime > DESTRUCTION_TIME) {
+			if (destructionTime > DESTRUCTION_TIME)
+			{
 				world.newGame();
 				destruct();
 			}

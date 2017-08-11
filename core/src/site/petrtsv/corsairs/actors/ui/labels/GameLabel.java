@@ -32,7 +32,8 @@ public abstract class GameLabel extends Actor
 		for (String line : lines)
 		{
 			int offsetX = 0;
-			if (isCenteredX) {
+			if (isCenteredX)
+			{
 				offsetX = -(getLabelWidth(line) / 2);
 			}
 			font.setColor(shadowColor);
@@ -87,11 +88,13 @@ public abstract class GameLabel extends Actor
 		return labelWidth;
 	}
 
-	public int getShadowOffset() {
+	public int getShadowOffset()
+	{
 		return SHADOW_OFFSET;
 	}
 
-	public Color getShadowColor() {
+	public Color getShadowColor()
+	{
 		return SHADOW_COLOR;
 	}
 

@@ -14,13 +14,11 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 public class Tower extends Actor
 {
-	GameWorld world;
 	public static final int IMAGE_WIDTH = 50;
 	public static final int IMAGE_HEIGHT = 50;
-
+	GameWorld world;
 	TextureRegion region;
 	Sprite sprite;
-
 
 
 	public Tower(GameWorld world)
@@ -41,7 +39,8 @@ public class Tower extends Actor
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
-		if (world.getShapeRenderer().isDrawing()) {
+		if (world.getShapeRenderer().isDrawing())
+		{
 			world.getShapeRenderer().end();
 		}
 		if (!batch.isDrawing())

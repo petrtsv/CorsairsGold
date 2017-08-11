@@ -70,7 +70,8 @@ public class CoinsGroup extends Group implements Disposable
 		coins.removeValue(coin, true);
 	}
 
-	public void onCoinCollision(Coin coin) {
+	public void onCoinCollision(Coin coin)
+	{
 		world.onCoinCollected();
 
 	}

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
-import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
 import site.petrtsv.corsairs.groups.MainMenuUIGroup;
 import site.petrtsv.corsairs.managers.AssetManager;
 import site.petrtsv.corsairs.models.MainMenuWorld;

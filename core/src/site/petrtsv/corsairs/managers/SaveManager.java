@@ -13,16 +13,17 @@ public class SaveManager
 {
 	private static SaveManager ourInstance = new SaveManager();
 
+	private SaveManager()
+	{
+	}
+
 	public static SaveManager getInstance()
 	{
 		return ourInstance;
 	}
 
-	private SaveManager()
+	public int getRecord()
 	{
-	}
-
-	public int getRecord() {
 		File recordFile = FileManager.getFile("record.val");
 		try
 		{
@@ -32,13 +33,15 @@ public class SaveManager
 			return record;
 		} catch (FileNotFoundException e)
 		{
-			return  -1;
-		} catch (NoSuchElementException e) {
+			return -1;
+		} catch (NoSuchElementException e)
+		{
 			return 0;
 		}
 	}
 
-	public void saveRecord(int record) {
+	public void saveRecord(int record)
+	{
 		File recordFile = FileManager.getFile("record.val");
 		try
 		{
