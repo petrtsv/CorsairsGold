@@ -5,18 +5,20 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 22.07.2017.
+ *
+ * Background of the game screen: isle and circle.
  */
 
 public class GameBackground extends Actor
 {
-	public static final int ISLE_WIDTH = 100;
-	public static final int ISLE_HEIGHT = 100;
-	GameWorld world;
+	private static final int ISLE_WIDTH = 100;
+	private static final int ISLE_HEIGHT = 100;
+	private GameWorld world;
 	private TextureRegion isleRegion;
 	private Sprite isleSprite;
 
@@ -25,7 +27,7 @@ public class GameBackground extends Actor
 	{
 		this.world = world;
 
-		isleRegion = AssetManager.getInstance().getTextureRegion("isle");
+		isleRegion = TextureManager.getInstance().getTextureRegion("isle");
 		try
 		{
 			isleSprite = new Sprite(isleRegion);

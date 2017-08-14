@@ -18,18 +18,20 @@ import java.util.Map;
 
 /**
  * Created by Петр on 15.07.2017.
+ *
+ * Class, that load texture atlases (.atls/.png) from catalog (.ctlg).
  */
-public class AssetManager
+public class TextureManager
 {
 	public static final String ATLASES_CTLG_PATH = "catalogs" +
 			File.separator + "atlases_catalog.ctlg";
-	private static AssetManager ourInstance = new AssetManager();
-	Map<String, Texture> atlases;
-	Map<String, TextureRegion> textureRegions;
-	GsonBuilder gsonBuilder;
-	Gson gson;
+	private static TextureManager ourInstance = new TextureManager();
+	private Map<String, Texture> atlases;
+	private Map<String, TextureRegion> textureRegions;
+	private GsonBuilder gsonBuilder;
+	private Gson gson;
 
-	private AssetManager()
+	private TextureManager()
 	{
 		gsonBuilder = new GsonBuilder();
 		gson = gsonBuilder.create();
@@ -37,7 +39,7 @@ public class AssetManager
 		textureRegions = new HashMap<String, TextureRegion>();
 	}
 
-	public static AssetManager getInstance()
+	public static TextureManager getInstance()
 	{
 		return ourInstance;
 	}
@@ -73,7 +75,7 @@ public class AssetManager
 		}
 	}
 
-	public void loadAtlas(String path) throws FileNotFoundException
+	private void loadAtlas(String path) throws FileNotFoundException
 	{
 		System.out.println("Loading \"" + path + ".atls\"...");
 		String pathToDescription = path + ".atls";
@@ -88,7 +90,7 @@ public class AssetManager
 		System.out.println("Complete!");
 	}
 
-	public void loadRegions(FileHandle fileHandle, Texture texture) throws FileNotFoundException
+	private void loadRegions(FileHandle fileHandle, Texture texture) throws FileNotFoundException
 	{
 		Type type = new TypeToken<Map<String, Object>[]>()
 		{

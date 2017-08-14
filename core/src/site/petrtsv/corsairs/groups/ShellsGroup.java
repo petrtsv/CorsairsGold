@@ -13,13 +13,15 @@ import site.petrtsv.corsairs.pools.ShellsPool;
 
 /**
  * Created by Петр on 10.07.2017.
+ *
+ * Group, that control shell during the game.
  */
 public class ShellsGroup extends Group implements Disposable
 {
-	public static final int STATES_NUM = 3;
-	GameWorld world;
-	Array<Shell> shells;
-	int state;
+	private static final int STATES_NUM = 3;
+	private GameWorld world;
+	private Array<Shell> shells;
+	private int state;
 
 	public ShellsGroup(GameWorld world)
 	{
@@ -45,7 +47,7 @@ public class ShellsGroup extends Group implements Disposable
 		}
 	}
 
-	public void deleteShell(Shell shell)
+	private void deleteShell(Shell shell)
 	{
 		removeActor(shell);
 		shells.removeValue(shell, true);
@@ -73,7 +75,6 @@ public class ShellsGroup extends Group implements Disposable
 		addActor(shell);
 	}
 
-	//TODO: rename next 3 methods
 	private Vector2 getFirstTypeShellDirection(float shellVelocity)
 	{
 		float time = GameWorld.RADIUS / shellVelocity;

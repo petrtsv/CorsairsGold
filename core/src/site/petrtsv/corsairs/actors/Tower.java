@@ -5,27 +5,29 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 
 /**
- * Created by Петр on 22.07.2017.
+ * Created by petrtsv on 22.07.2017.
+ *
+ * Tower in the center of the game field.
  */
 
 public class Tower extends Actor
 {
-	public static final int IMAGE_WIDTH = 50;
-	public static final int IMAGE_HEIGHT = 50;
-	GameWorld world;
-	TextureRegion region;
-	Sprite sprite;
+	private static final int IMAGE_WIDTH = 50;
+	private static final int IMAGE_HEIGHT = 50;
+	private GameWorld world;
+	private TextureRegion region;
+	private Sprite sprite;
 
 
 	public Tower(GameWorld world)
 	{
 		this.world = world;
 
-		region = AssetManager.getInstance().getTextureRegion("tower");
+		region = TextureManager.getInstance().getTextureRegion("tower");
 		try
 		{
 			sprite = new Sprite(region);

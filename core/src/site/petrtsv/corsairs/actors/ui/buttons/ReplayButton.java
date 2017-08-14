@@ -6,21 +6,23 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 import site.petrtsv.corsairs.groups.ResultUIGroup;
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.ResultWorld;
 
 /**
  * Created by Петр on 29.07.2017.
+ *
+ * Replay button on the result screen.
  */
 
 public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameButton
 {
-	ResultWorld world;
-	ResultUIGroup group;
-	TextureRegion usualRegion;
-	TextureRegion pressedRegion;
-	ButtonState state;
-	int pointer;
+	private ResultWorld world;
+	private ResultUIGroup group;
+	private TextureRegion usualRegion;
+	private TextureRegion pressedRegion;
+	private ButtonState state;
+	private int pointer;
 
 
 	public ReplayButton(ResultUIGroup group, int x, int y)
@@ -29,8 +31,8 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 		this.world = group.getWorld();
 		setX(x);
 		setY(y);
-		usualRegion = AssetManager.getInstance().getTextureRegion("replay_button");
-		pressedRegion = AssetManager.getInstance().getTextureRegion("replay_button_pressed");
+		usualRegion = TextureManager.getInstance().getTextureRegion("replay_button");
+		pressedRegion = TextureManager.getInstance().getTextureRegion("replay_button_pressed");
 		setSize(usualRegion.getRegionWidth(), usualRegion.getRegionHeight());
 		pointer = -1;
 
@@ -56,8 +58,11 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 		{
 			current = pressedRegion;
 		}
-		batch.draw(current, getX() - current.getRegionWidth() / 2,
-				getY() - current.getRegionHeight() / 2);
+		if (current != null)
+		{
+			batch.draw(current, getX() - current.getRegionWidth() / 2,
+					getY() - current.getRegionHeight() / 2);
+		}
 	}
 
 	@Override
@@ -100,7 +105,7 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 		return state;
 	}
 
-	public void setState(ButtonState state)
+	private void setState(ButtonState state)
 	{
 		this.state = state;
 	}

@@ -9,11 +9,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
+ *
+ * Player on the game screen.
  */
 public class Player extends Actor
 {
@@ -44,7 +46,7 @@ public class Player extends Actor
 		this.radius = new Vector2(1, 1).setAngle(angle).setLength(radius);
 		position = new Vector2(rotationPosition.cpy().add(this.radius));
 		setPosition(position.x, position.y);
-		region = AssetManager.getInstance().getTextureRegion("pirate_ship");
+		region = TextureManager.getInstance().getTextureRegion("pirate_ship");
 		try
 		{
 			sprite = new Sprite(region);
@@ -100,7 +102,7 @@ public class Player extends Actor
 		}
 	}
 
-	public Rectangle getHitBox()
+	Rectangle getHitBox()
 	{
 		hitBox.setCenter(position);
 		hitBox.setSize(PLAYERS_WIDTH, PLAYERS_HEIGHT);

@@ -11,12 +11,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import site.petrtsv.corsairs.actors.interfaces.Destructible;
 import site.petrtsv.corsairs.groups.CoinsGroup;
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.pools.CoinsPool;
 
 /**
  * Created by Петр on 06.07.2017.
+ *
+ * Coin on the game screen.
  */
 public class Coin extends Actor implements Destructible
 {
@@ -28,7 +30,6 @@ public class Coin extends Actor implements Destructible
 	private static final int MAX_WIDTH = 18;
 	private static final int MAX_HEIGHT = 18;
 	private static final float DESTRUCTION_TIME = 0.3f;
-
 	private CoinsGroup group;
 	private GameWorld world;
 	private Vector2 position;
@@ -58,7 +59,7 @@ public class Coin extends Actor implements Destructible
 
 		this.position.set(position);
 		setPosition(position.x, position.y);
-		region = AssetManager.getInstance().getTextureRegion("coin");
+		region = TextureManager.getInstance().getTextureRegion("coin");
 		try
 		{
 			sprite = new Sprite(region);
@@ -131,6 +132,7 @@ public class Coin extends Actor implements Destructible
 		{
 			batch.begin();
 		}
+
 		sprite.setSize(IMAGE_WIDTH + widthDelta, IMAGE_HEIGHT + heightDelta);
 		sprite.setCenter(position.x, position.y);
 		sprite.setAlpha(alpha);
@@ -139,7 +141,8 @@ public class Coin extends Actor implements Destructible
 		//drawHitBox(batch);
 	}
 
-	public Rectangle getHitBox()
+
+	private Rectangle getHitBox()
 	{
 		hitBox.setPosition(position.x - COIN_WIDTH / 2, position.y - COIN_HEIGHT / 2);
 		return hitBox;
@@ -164,15 +167,9 @@ public class Coin extends Actor implements Destructible
 		}
 	}
 
-	public boolean isCollide()
+	private boolean isCollide()
 	{
-		if (getHitBox().overlaps(group.getWorld().getPlayer().getHitBox()))
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
+		return getHitBox().overlaps(group.getWorld().getPlayer().getHitBox());
 	}
 
 	public void destruct()
@@ -187,12 +184,12 @@ public class Coin extends Actor implements Destructible
 		return state;
 	}
 
-	public void setState(CoinState state)
+	private void setState(CoinState state)
 	{
 		this.state = state;
 	}
 
-	public enum CoinState
+	private enum CoinState
 	{
 		STATIC, DISAPPEARING
 	}

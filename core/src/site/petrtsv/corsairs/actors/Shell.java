@@ -12,30 +12,31 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import site.petrtsv.corsairs.actors.interfaces.Destructible;
 import site.petrtsv.corsairs.groups.ShellsGroup;
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.pools.ShellsPool;
 
 /**
  * Created by Петр on 04.07.2017.
+ *
+ * Shell on the game screen.
  */
 public class Shell extends Actor implements Destructible
 {
-	public static final int SHELL_WIDTH = 15;
-	public static final int SHELL_HEIGHT = 15;
-	public static final int IMAGE_WIDTH = 15;
-	public static final int IMAGE_HEIGHT = 22;
-	public static final float EXPLOSION_SCALE = 0.75f;
-	public static final float DESTRUCTION_TIME = 0.2f;
+	private static final int SHELL_WIDTH = 15;
+	private static final int SHELL_HEIGHT = 15;
+	private static final int IMAGE_WIDTH = 15;
+	private static final int IMAGE_HEIGHT = 22;
+	private static final float EXPLOSION_SCALE = 0.75f;
+	private static final float DESTRUCTION_TIME = 0.2f;
 
 
-	Animation<TextureRegion> explosionAnimation;
+	private Animation<TextureRegion> explosionAnimation;
 	private GameWorld world;
 	private ShellsGroup group;
 	private Vector2 velocity;
 	private Vector2 position;
 	private TextureRegion region;
-	private TextureRegion[] explosionRegions;
 	private Sprite sprite;
 	private float rotation;
 	private float destructionTime;
@@ -48,7 +49,7 @@ public class Shell extends Actor implements Destructible
 		this.group = group;
 		this.world = group.getWorld();
 		position = new Vector2();
-		region = AssetManager.getInstance().getTextureRegion("fire_shell");
+		region = TextureManager.getInstance().getTextureRegion("fire_shell");
 		try
 		{
 			sprite = new Sprite(region);
@@ -57,10 +58,10 @@ public class Shell extends Actor implements Destructible
 			e.printStackTrace();
 		}
 
-		explosionRegions = new TextureRegion[3];
+		TextureRegion[] explosionRegions = new TextureRegion[3];
 		for (int i = 0; i < 3; i++)
 		{
-			explosionRegions[i] = AssetManager.getInstance().getTextureRegion("explosion" + i);
+			explosionRegions[i] = TextureManager.getInstance().getTextureRegion("explosion" + i);
 		}
 		explosionAnimation = new Animation<TextureRegion>(DESTRUCTION_TIME / 3f, explosionRegions);
 		hitBox = new Rectangle();
@@ -174,7 +175,7 @@ public class Shell extends Actor implements Destructible
 		this.velocity = velocity;
 	}
 
-	public Rectangle getHitBox()
+	private Rectangle getHitBox()
 	{
 		hitBox.setCenter(position);
 		return hitBox;
@@ -199,15 +200,9 @@ public class Shell extends Actor implements Destructible
 		}
 	}
 
-	public boolean isCollide()
+	private boolean isCollide()
 	{
-		if (getHitBox().overlaps(world.getPlayer().getHitBox()))
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
+		return getHitBox().overlaps(world.getPlayer().getHitBox());
 	}
 
 	public void destruct()
@@ -221,12 +216,12 @@ public class Shell extends Actor implements Destructible
 		return state;
 	}
 
-	public void setState(ShellState state)
+	private void setState(ShellState state)
 	{
 		this.state = state;
 	}
 
-	public enum ShellState
+	private enum ShellState
 	{
 		FLYING, EXPLOSION
 	}

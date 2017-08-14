@@ -6,21 +6,23 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 import site.petrtsv.corsairs.groups.MainMenuUIGroup;
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.MainMenuWorld;
 
 /**
  * Created by Петр on 25.07.2017.
+ *
+ * Play button.
  */
 
 public class PlayButton extends GameButton
 {
-	MainMenuWorld world;
-	MainMenuUIGroup group;
-	TextureRegion usualRegion;
-	TextureRegion pressedRegion;
-	ButtonState state;
-	int pointer;
+	private MainMenuWorld world;
+	private MainMenuUIGroup group;
+	private TextureRegion usualRegion;
+	private TextureRegion pressedRegion;
+	private ButtonState state;
+	private int pointer;
 
 
 	public PlayButton(MainMenuUIGroup group, int x, int y)
@@ -29,8 +31,8 @@ public class PlayButton extends GameButton
 		this.world = group.getWorld();
 		setX(x);
 		setY(y);
-		usualRegion = AssetManager.getInstance().getTextureRegion("play_button");
-		pressedRegion = AssetManager.getInstance().getTextureRegion("play_button_pressed");
+		usualRegion = TextureManager.getInstance().getTextureRegion("play_button");
+		pressedRegion = TextureManager.getInstance().getTextureRegion("play_button_pressed");
 		setSize(usualRegion.getRegionWidth(), usualRegion.getRegionHeight());
 		pointer = -1;
 
@@ -56,8 +58,11 @@ public class PlayButton extends GameButton
 		{
 			current = pressedRegion;
 		}
-		batch.draw(current, getX() - current.getRegionWidth() / 2,
-				getY() - current.getRegionHeight() / 2);
+		if (current != null)
+		{
+			batch.draw(current, getX() - current.getRegionWidth() / 2,
+					getY() - current.getRegionHeight() / 2);
+		}
 	}
 
 	@Override
@@ -99,7 +104,7 @@ public class PlayButton extends GameButton
 		return state;
 	}
 
-	public void setState(ButtonState state)
+	private void setState(ButtonState state)
 	{
 		this.state = state;
 	}

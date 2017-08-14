@@ -6,21 +6,23 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import site.petrtsv.corsairs.managers.AssetManager;
+import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.MenuWorld;
 
 /**
  * Created by Петр on 02.08.2017.
+ *
+ * Sail, that appears in the center of result screen.
  */
 
 public class BigSail extends Actor
 {
-	public static final int IMAGE_WIDTH = 132;
-	public static final int IMAGE_HEIGHT = 94;
-	MenuWorld world;
-	Vector2 position;
-	TextureRegion region;
-	Sprite sprite;
+	private static final int IMAGE_HEIGHT = 94;
+	private static final int IMAGE_WIDTH = 132;
+	private MenuWorld world;
+	private Vector2 position;
+	private TextureRegion region;
+	private Sprite sprite;
 
 
 	public BigSail(MenuWorld world, float x, float y)
@@ -28,7 +30,7 @@ public class BigSail extends Actor
 		this.world = world;
 		this.position = new Vector2(x, y);
 
-		region = AssetManager.getInstance().getTextureRegion("big_sail");
+		region = TextureManager.getInstance().getTextureRegion("big_sail");
 		try
 		{
 			sprite = new Sprite(region);
