@@ -10,21 +10,28 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 23.07.2017.
+ *
+ * Label in the bottom of screen.
  */
 
 public class LowerLabel extends GameLabel
 {
-	public static final int Y_COORDINATE = -250;
+	@SuppressWarnings("unused")
 	public static final int CHAR_LENGTH = 14;
+	private static final int Y_COORDINATE = -250;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private Stage world;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private UIGroup group;
 
-	Stage world;
-	UIGroup group;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
+	private BitmapFont font;
+	private String text;
 
-	Vector2 position;
-	BitmapFont font;
-	String text;
-
-	Color color;
+	@SuppressWarnings("CanBeFinal")
+	private Color color;
 
 
 	public LowerLabel(UIGroup group)

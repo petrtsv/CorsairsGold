@@ -18,7 +18,9 @@ public class GameBackground extends Actor
 {
 	private static final int ISLE_WIDTH = 100;
 	private static final int ISLE_HEIGHT = 100;
+	@SuppressWarnings("CanBeFinal")
 	private GameWorld world;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private TextureRegion isleRegion;
 	private Sprite isleSprite;
 

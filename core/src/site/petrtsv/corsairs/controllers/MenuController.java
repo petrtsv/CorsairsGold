@@ -10,12 +10,16 @@ import site.petrtsv.corsairs.models.MenuWorld;
 
 /**
  * Created by Петр on 26.07.2017.
+ *
+ * Class, that process input in the menu.
  */
 
 public class MenuController implements InputProcessor
 {
-	MenuWorld model;
-	Vector2 touch;
+	@SuppressWarnings("CanBeFinal")
+	private MenuWorld model;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 touch;
 
 	public MenuController(MenuWorld model)
 	{

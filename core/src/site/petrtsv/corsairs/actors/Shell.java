@@ -31,16 +31,21 @@ public class Shell extends Actor implements Destructible
 	private static final float DESTRUCTION_TIME = 0.2f;
 
 
+	@SuppressWarnings("CanBeFinal")
 	private Animation<TextureRegion> explosionAnimation;
 	private GameWorld world;
+	@SuppressWarnings("unused")
 	private ShellsGroup group;
 	private Vector2 velocity;
+	@SuppressWarnings("CanBeFinal")
 	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
 	private TextureRegion region;
 	private Sprite sprite;
 	private float rotation;
 	private float destructionTime;
 
+	@SuppressWarnings("CanBeFinal")
 	private Rectangle hitBox;
 	private ShellState state;
 
@@ -165,11 +170,13 @@ public class Shell extends Actor implements Destructible
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public Vector2 getVelocity()
 	{
 		return velocity;
 	}
 
+	@SuppressWarnings("unused")
 	public void setVelocity(Vector2 velocity)
 	{
 		this.velocity = velocity;
@@ -181,6 +188,7 @@ public class Shell extends Actor implements Destructible
 		return hitBox;
 	}
 
+	@SuppressWarnings("unused")
 	public void drawHitBox(Batch batch)
 	{
 		if (batch.isDrawing())
@@ -210,6 +218,7 @@ public class Shell extends Actor implements Destructible
 		ShellsPool.getInstance().putShell(this);
 	}
 
+	@SuppressWarnings("unused")
 	public ShellState getState()
 	{
 
@@ -221,6 +230,7 @@ public class Shell extends Actor implements Destructible
 		this.state = state;
 	}
 
+	@SuppressWarnings("unused")
 	private enum ShellState
 	{
 		FLYING, EXPLOSION

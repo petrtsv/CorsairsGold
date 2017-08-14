@@ -19,7 +19,9 @@ import site.petrtsv.corsairs.pools.ShellsPool;
 public class ShellsGroup extends Group implements Disposable
 {
 	private static final int STATES_NUM = 3;
+	@SuppressWarnings("CanBeFinal")
 	private GameWorld world;
+	@SuppressWarnings("CanBeFinal")
 	private Array<Shell> shells;
 	private int state;
 

@@ -6,6 +6,8 @@ import site.petrtsv.corsairs.actors.interfaces.Destructible;
 
 /**
  * Created by Петр on 20.06.2017.
+ *
+ * Abstract button on the screen.
  */
 public abstract class GameButton extends Actor implements Destructible
 {
@@ -13,7 +15,8 @@ public abstract class GameButton extends Actor implements Destructible
 
 	public abstract void onTouchUp(int pointer);
 
-	public enum ButtonState
+	@SuppressWarnings("unused")
+	enum ButtonState
 	{
 		PRESSED, NOTPRESSED
 	}

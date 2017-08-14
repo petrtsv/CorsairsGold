@@ -10,21 +10,27 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 07.08.2017.
+ *
+ * Record label.
  */
 
 public class RecordLabel extends GameLabel
 {
-	Stage world;
-	UIGroup group;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private Stage world;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private UIGroup group;
 
-	Vector2 position;
-	BitmapFont font;
-	String text;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
+	private BitmapFont font;
+	private String text;
 
-	Color color;
+	private Color color;
 
 
-	public RecordLabel(UIGroup group, Color color, Color recordColor,
+	public RecordLabel(UIGroup group, @SuppressWarnings("SameParameterValue") Color color, Color recordColor,
 					   int y, int result, int record)
 	{
 		this.group = group;

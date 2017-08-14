@@ -11,12 +11,16 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
 
 /**
  * Created by Петр on 26.07.2017.
+ *
+ * Group, that contain UI elements of main menu.
  */
 
 public class MainMenuUIGroup extends UIGroup implements Disposable
 {
-	PlayButton playButton;
-	ScreenHeader header;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private PlayButton playButton;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private ScreenHeader header;
 
 	public MainMenuUIGroup(MainMenuWorld world)
 	{

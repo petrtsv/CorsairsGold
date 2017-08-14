@@ -10,20 +10,27 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
+ *
+ * Screen with the game.
  */
 public class GameScreen implements Screen
 {
-	public static final float MAX_FPS = 120;
+	private static final float MAX_FPS = 120;
+	@SuppressWarnings("CanBeFinal")
 	public int width;
+	@SuppressWarnings("CanBeFinal")
 	public int height;
-	public float time;
+	private float time;
 
-	Corsairs game;
-	GameController controller;
-	GameWorld model;
+	@SuppressWarnings("CanBeFinal")
+	private Corsairs game;
+	@SuppressWarnings("CanBeFinal")
+	private GameController controller;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld model;
 
 
-	public GameScreen(Corsairs game, int width, int height)
+	GameScreen(Corsairs game, int width, int height)
 	{
 		this.game = game;
 		this.width = width;

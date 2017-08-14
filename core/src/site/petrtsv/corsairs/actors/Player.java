@@ -25,19 +25,25 @@ public class Player extends Actor
 	private static final int IMAGE_WIDTH = 33;
 	private static final int IMAGE_HEIGHT = 40;
 
+	@SuppressWarnings("CanBeFinal")
 	private GameWorld world;
 	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
 	private Vector2 rotationPosition;
+	@SuppressWarnings("CanBeFinal")
 	private Vector2 radius;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private TextureRegion region;
 	private Sprite sprite;
 	private float angleVelocity;
+	@SuppressWarnings("FieldCanBeLocal")
 	private float rotation;
 	private PlayerState state;
 
+	@SuppressWarnings("CanBeFinal")
 	private Rectangle hitBox;
 
-	public Player(GameWorld world, float radius, float angle, Vector2 rotationPosition)
+	public Player(GameWorld world, @SuppressWarnings("SameParameterValue") float radius, @SuppressWarnings("SameParameterValue") float angle, Vector2 rotationPosition)
 	{
 		this.world = world;
 
@@ -109,6 +115,7 @@ public class Player extends Actor
 		return hitBox;
 	}
 
+	@SuppressWarnings("unused")
 	public void drawHitBox(Batch batch)
 	{
 		if (batch.isDrawing())
@@ -133,6 +140,7 @@ public class Player extends Actor
 		return radius.angle();
 	}
 
+	@SuppressWarnings("unused")
 	public int getVelocityDir()
 	{
 		return Float.compare(angleVelocity, 0);
@@ -169,6 +177,7 @@ public class Player extends Actor
 		position.y = y;
 	}
 
+	@SuppressWarnings("unused")
 	public PlayerState getState()
 	{
 		return state;
@@ -179,6 +188,7 @@ public class Player extends Actor
 		this.state = state;
 	}
 
+	@SuppressWarnings("unused")
 	public enum PlayerState
 	{
 		ACTIVE, STATIC

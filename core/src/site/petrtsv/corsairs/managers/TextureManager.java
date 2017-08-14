@@ -10,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -18,17 +17,23 @@ import java.util.Map;
 
 /**
  * Created by Петр on 15.07.2017.
- *
+ * <p>
  * Class, that load texture atlases (.atls/.png) from catalog (.ctlg).
  */
 public class TextureManager
 {
-	public static final String ATLASES_CTLG_PATH = "catalogs" +
+	@SuppressWarnings("unused")
+	public static final String ATLASES_CATALOG_PATH = "catalogs" +
 			File.separator + "atlases_catalog.ctlg";
+	@SuppressWarnings("CanBeFinal")
 	private static TextureManager ourInstance = new TextureManager();
+	@SuppressWarnings({"CanBeFinal", "MismatchedQueryAndUpdateOfCollection"})
 	private Map<String, Texture> atlases;
+	@SuppressWarnings("CanBeFinal")
 	private Map<String, TextureRegion> textureRegions;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private GsonBuilder gsonBuilder;
+	@SuppressWarnings("CanBeFinal")
 	private Gson gson;
 
 	private TextureManager()
@@ -48,8 +53,6 @@ public class TextureManager
 	{
 		try
 		{
-			FileHandle catalogDirHandle =
-					Gdx.files.internal("").child("catalogs");
 			FileHandle catalogFileHandle =
 					Gdx.files.internal("").child("catalogs").child("atlases_catalog.ctlg");
 
@@ -75,7 +78,7 @@ public class TextureManager
 		}
 	}
 
-	private void loadAtlas(String path) throws FileNotFoundException
+	private void loadAtlas(String path)
 	{
 		System.out.println("Loading \"" + path + ".atls\"...");
 		String pathToDescription = path + ".atls";
@@ -90,7 +93,7 @@ public class TextureManager
 		System.out.println("Complete!");
 	}
 
-	private void loadRegions(FileHandle fileHandle, Texture texture) throws FileNotFoundException
+	private void loadRegions(FileHandle fileHandle, Texture texture)
 	{
 		Type type = new TypeToken<Map<String, Object>[]>()
 		{

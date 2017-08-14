@@ -8,9 +8,12 @@ import java.util.Scanner;
 
 /**
  * Created by Петр on 10.07.2017.
+ *
+ * Class, that save and load game data.
  */
 public class SaveManager
 {
+	@SuppressWarnings("CanBeFinal")
 	private static SaveManager ourInstance = new SaveManager();
 
 	private SaveManager()
@@ -27,7 +30,14 @@ public class SaveManager
 		File recordFile = FileManager.getFile("record.val");
 		try
 		{
-			Scanner scanner = new Scanner(recordFile);
+			Scanner scanner;
+			if (recordFile != null)
+			{
+				scanner = new Scanner(recordFile);
+			} else
+			{
+				return -1;
+			}
 			int record = scanner.nextInt();
 			scanner.close();
 			return record;
@@ -43,14 +53,17 @@ public class SaveManager
 	public void saveRecord(int record)
 	{
 		File recordFile = FileManager.getFile("record.val");
-		try
+		if (recordFile != null)
 		{
-			PrintWriter writer = new PrintWriter(recordFile);
-			writer.print(record);
-			writer.close();
-		} catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
+			try
+			{
+				PrintWriter writer = new PrintWriter(recordFile);
+				writer.print(record);
+				writer.close();
+			} catch (FileNotFoundException e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package site.petrtsv.corsairs.groups;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
@@ -12,13 +11,19 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 09.07.2017.
+ *
+ * Group, that controls UI elements during the game.
  */
 public class GameUIGroup extends UIGroup implements Disposable
 {
-	GameWorld world;
-	Array<GameButton> buttons;
+	@SuppressWarnings("unused")
 	PauseButton pauseButton;
-	LowerLabel lowerLabel;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld world;
+	@SuppressWarnings("CanBeFinal")
+	private Array<GameButton> buttons;
+	@SuppressWarnings("CanBeFinal")
+	private LowerLabel lowerLabel;
 
 	public GameUIGroup(GameWorld world)
 	{
@@ -53,12 +58,6 @@ public class GameUIGroup extends UIGroup implements Disposable
 	{
 		removeActor(button);
 		buttons.removeValue(button, true);
-	}
-
-	@Override
-	public Actor hit(float x, float y, boolean touchable)
-	{
-		return super.hit(x, y, touchable);
 	}
 
 	public String getLowerLabelText()

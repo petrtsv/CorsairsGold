@@ -10,21 +10,28 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
 
 /**
  * Created by Петр on 26.07.2017.
+ *
+ * Screen with the main menu.
  */
 
 public class MainMenuScreen implements Screen
 {
 
-	public static final float MAX_FPS = 60;
+	private static final float MAX_FPS = 60;
+	@SuppressWarnings("CanBeFinal")
 	public int width;
+	@SuppressWarnings("CanBeFinal")
 	public int height;
-	public float time;
+	private float time;
 
-	Corsairs game;
-	MenuController controller;
-	MainMenuWorld model;
+	@SuppressWarnings("CanBeFinal")
+	private Corsairs game;
+	@SuppressWarnings("CanBeFinal")
+	private MenuController controller;
+	@SuppressWarnings("CanBeFinal")
+	private MainMenuWorld model;
 
-	public MainMenuScreen(Corsairs game, int width, int height)
+	public MainMenuScreen(Corsairs game, int width, @SuppressWarnings("SameParameterValue") int height)
 	{
 		this.game = game;
 		this.width = width;

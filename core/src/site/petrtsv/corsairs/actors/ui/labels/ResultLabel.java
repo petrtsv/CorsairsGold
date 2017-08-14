@@ -10,21 +10,28 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 02.08.2017.
+ *
+ * Result label.
  */
 
 public class ResultLabel extends GameLabel
 {
-	Stage world;
-	UIGroup group;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private Stage world;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private UIGroup group;
 
-	Vector2 position;
-	BitmapFont font;
-	String text;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
+	private BitmapFont font;
+	private String text;
 
-	Color color;
+	@SuppressWarnings("CanBeFinal")
+	private Color color;
 
 
-	public ResultLabel(UIGroup group, int result, int y)
+	public ResultLabel(UIGroup group, int result, @SuppressWarnings("SameParameterValue") int y)
 	{
 		this.text = "";
 		this.group = group;

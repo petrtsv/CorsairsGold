@@ -9,12 +9,16 @@ import site.petrtsv.corsairs.groups.UIGroup;
 
 /**
  * Created by Петр on 07.08.2017.
+ *
+ * Class, that load fonts.
  */
 
 public class FontManager
 {
 	private static final FontManager ourInstance = new FontManager();
+	@SuppressWarnings("FieldCanBeLocal")
 	private final String ROBOTO_BOLD_PATH = "fonts/roboto_bold.ttf";
+	@SuppressWarnings("FieldCanBeLocal")
 	private final String KENPIXEL_BLOCKS_PATH = "fonts/kenpixel_blocks.ttf";
 	private BitmapFont mainUI;
 	private BitmapFont largeHeader;

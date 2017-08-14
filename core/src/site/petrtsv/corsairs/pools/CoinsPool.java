@@ -8,11 +8,15 @@ import site.petrtsv.corsairs.groups.CoinsGroup;
 
 /**
  * Created by Петр on 06.07.2017.
+ *
+ * Pool, that contain unused coins.
  */
 public class CoinsPool
 {
+	@SuppressWarnings("CanBeFinal")
 	private static CoinsPool ourInstance = new CoinsPool();
-	Array<Coin> coinsArray;
+	@SuppressWarnings("CanBeFinal")
+	private Array<Coin> coinsArray;
 
 	private CoinsPool()
 	{

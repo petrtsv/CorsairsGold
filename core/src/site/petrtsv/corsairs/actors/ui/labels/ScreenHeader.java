@@ -10,21 +10,28 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 10.08.2017.
+ *
+ * Label with big font in the top of the screen.
  */
 
 public class ScreenHeader extends GameLabel
 {
-	Stage world;
-	UIGroup group;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private Stage world;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private UIGroup group;
 
-	Vector2 position;
-	BitmapFont font;
-	String text;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
+	private BitmapFont font;
+	private String text;
 
-	Color color;
+	@SuppressWarnings("CanBeFinal")
+	private Color color;
 
 
-	public ScreenHeader(UIGroup group, int y, String text, Color color)
+	public ScreenHeader(UIGroup group, @SuppressWarnings("SameParameterValue") int y, String text, Color color)
 	{
 		this.text = text;
 		this.group = group;

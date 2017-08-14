@@ -1,6 +1,5 @@
 package site.petrtsv.corsairs.groups;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.utils.Array;
@@ -12,14 +11,18 @@ import site.petrtsv.corsairs.pools.CoinsPool;
 
 /**
  * Created by Петр on 08.07.2017.
+ *
+ * Group, that control coins during the game.
  */
 public class CoinsGroup extends Group implements Disposable
 {
-	public static final int COINS_CNT = 38;
+	private static final int COINS_CNT = 38;
 
-	GameWorld world;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld world;
 
-	Array<Coin> coins;
+	@SuppressWarnings("CanBeFinal")
+	private Array<Coin> coins;
 
 	public CoinsGroup(GameWorld world)
 	{
@@ -41,18 +44,12 @@ public class CoinsGroup extends Group implements Disposable
 			coins.add(coin);
 			polarCoord.setAngle(polarCoord.angle() + delta);
 		}
-		return COINS_CNT;
+		return coins.size;
 	}
 
 	public GameWorld getWorld()
 	{
 		return world;
-	}
-
-	@Override
-	public void draw(Batch batch, float parentAlpha)
-	{
-		super.draw(batch, parentAlpha);
 	}
 
 	@Override
@@ -70,7 +67,7 @@ public class CoinsGroup extends Group implements Disposable
 		coins.removeValue(coin, true);
 	}
 
-	public void onCoinCollision(Coin coin)
+	public void onCoinCollision(@SuppressWarnings("UnusedParameters") Coin coin)
 	{
 		world.onCoinCollected();
 

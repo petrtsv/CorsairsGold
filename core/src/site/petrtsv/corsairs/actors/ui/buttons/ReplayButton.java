@@ -17,15 +17,19 @@ import site.petrtsv.corsairs.models.ResultWorld;
 
 public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameButton
 {
+	@SuppressWarnings("CanBeFinal")
 	private ResultWorld world;
+	@SuppressWarnings("CanBeFinal")
 	private ResultUIGroup group;
+	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
+	@SuppressWarnings("CanBeFinal")
 	private TextureRegion pressedRegion;
 	private ButtonState state;
 	private int pointer;
 
 
-	public ReplayButton(ResultUIGroup group, int x, int y)
+	public ReplayButton(ResultUIGroup group, @SuppressWarnings("SameParameterValue") int x, int y)
 	{
 		this.group = group;
 		this.world = group.getWorld();
@@ -100,6 +104,7 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public ButtonState getState()
 	{
 		return state;

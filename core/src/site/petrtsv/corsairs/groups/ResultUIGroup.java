@@ -14,16 +14,24 @@ import site.petrtsv.corsairs.models.ResultWorld;
 
 /**
  * Created by Петр on 29.07.2017.
+ *
+ * Group, that contains UI elements of the result screen.
  */
 
 public class ResultUIGroup extends UIGroup
 {
-	ResultWorld world;
-	Array<GameButton> buttons;
-	ReplayButton replayButton;
-	ResultLabel resultLabel;
-	ScreenHeader header;
-	RecordLabel recordLabel;
+	@SuppressWarnings("CanBeFinal")
+	private ResultWorld world;
+	@SuppressWarnings("CanBeFinal")
+	private Array<GameButton> buttons;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private ReplayButton replayButton;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private ResultLabel resultLabel;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private ScreenHeader header;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private RecordLabel recordLabel;
 
 	public ResultUIGroup(ResultWorld world)
 	{

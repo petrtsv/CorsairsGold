@@ -1,5 +1,6 @@
 apply plugin: "java"
 
+//noinspection GroovyUnusedAssignment
 sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = ["src/"]
 
@@ -46,6 +47,7 @@ eclipse {
 task afterEclipseImport(description: "Post processing after project generation", group: "IDE") {
     doLast {
         def classpath = new XmlParser().parse(file(".classpath"))
+        //noinspection GroovyResultOfObjectAllocationIgnored
         new Node(classpath, "classpathentry", [kind: 'src', path: 'assets']);
         def writer = new FileWriter(file(".classpath"))
         def printer = new XmlNodePrinter(new PrintWriter(writer))

@@ -18,7 +18,9 @@ public class Tower extends Actor
 {
 	private static final int IMAGE_WIDTH = 50;
 	private static final int IMAGE_HEIGHT = 50;
+	@SuppressWarnings("CanBeFinal")
 	private GameWorld world;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private TextureRegion region;
 	private Sprite sprite;
 

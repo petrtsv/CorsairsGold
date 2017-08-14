@@ -12,16 +12,21 @@ import site.petrtsv.corsairs.screens.MainMenuScreen;
 
 /**
  * Created by Петр on 26.07.2017.
+ *
+ * Model of the main menu.
  */
 
 public class MainMenuWorld extends MenuWorld
 {
-	MainMenuScreen screen;
-	OrthographicCamera camera;
+	@SuppressWarnings("CanBeFinal")
+	private MainMenuScreen screen;
+	private OrthographicCamera camera;
 
-	ShapeRenderer shapeRenderer;
+	@SuppressWarnings("CanBeFinal")
+	private ShapeRenderer shapeRenderer;
 
-	UIGroup uiGroup;
+	@SuppressWarnings("CanBeFinal")
+	private UIGroup uiGroup;
 
 	public MainMenuWorld(MainMenuScreen screen)
 	{
@@ -39,7 +44,7 @@ public class MainMenuWorld extends MenuWorld
 		setZIndices();
 	}
 
-	public void initializeCamera()
+	private void initializeCamera()
 	{
 		camera = new OrthographicCamera(screen.width, screen.height);
 		camera.position.set(new Vector2(0, 0), 0);
@@ -56,7 +61,7 @@ public class MainMenuWorld extends MenuWorld
 		screen.onPlayButtonPressed();
 	}
 
-	public void setZIndices()
+	private void setZIndices()
 	{
 		uiGroup.setZIndex(5);
 	}

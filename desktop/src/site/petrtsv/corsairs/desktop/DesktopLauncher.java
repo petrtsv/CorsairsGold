@@ -2,9 +2,12 @@ package site.petrtsv.corsairs.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+
 import site.petrtsv.corsairs.Corsairs;
 
-public class DesktopLauncher {
+class DesktopLauncher
+{
+	@SuppressWarnings("unused")
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Corsairs";

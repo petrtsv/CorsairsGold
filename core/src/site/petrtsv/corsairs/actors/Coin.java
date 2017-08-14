@@ -32,10 +32,13 @@ public class Coin extends Actor implements Destructible
 	private static final float DESTRUCTION_TIME = 0.3f;
 	private CoinsGroup group;
 	private GameWorld world;
+	@SuppressWarnings("CanBeFinal")
 	private Vector2 position;
+	@SuppressWarnings("FieldCanBeLocal")
 	private TextureRegion region;
 	private Sprite sprite;
 
+	@SuppressWarnings("CanBeFinal")
 	private Rectangle hitBox;
 
 	private CoinState state;
@@ -148,6 +151,7 @@ public class Coin extends Actor implements Destructible
 		return hitBox;
 	}
 
+	@SuppressWarnings("unused")
 	public void drawHitBox(Batch batch)
 	{
 		if (batch.isDrawing())
@@ -178,6 +182,7 @@ public class Coin extends Actor implements Destructible
 		CoinsPool.getInstance().putCoin(this);
 	}
 
+	@SuppressWarnings("unused")
 	public CoinState getState()
 	{
 
@@ -189,6 +194,7 @@ public class Coin extends Actor implements Destructible
 		this.state = state;
 	}
 
+	@SuppressWarnings("unused")
 	private enum CoinState
 	{
 		STATIC, DISAPPEARING

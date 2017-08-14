@@ -10,17 +10,24 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 06.07.2017.
+ *
+ * Scores label.
  */
 public class ScoresLabel extends GameLabel
 {
-	GameWorld world;
+	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
+	private GameWorld world;
 
-	int value;
-	String text;
-	int record;
-	Vector2 position;
-	BitmapFont font;
-	Color color;
+	private int value;
+	private String text;
+	@SuppressWarnings({"unused", "FieldCanBeLocal"})
+	private int record;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 position;
+	@SuppressWarnings("CanBeFinal")
+	private BitmapFont font;
+	@SuppressWarnings("CanBeFinal")
+	private Color color;
 
 	public ScoresLabel(GameWorld world, Vector2 position)
 	{
@@ -39,6 +46,7 @@ public class ScoresLabel extends GameLabel
 		setValue(0);
 	}
 
+	@SuppressWarnings("unused")
 	public int getValue()
 	{
 		return value;

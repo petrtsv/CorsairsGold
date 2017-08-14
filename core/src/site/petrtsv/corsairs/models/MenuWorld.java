@@ -7,6 +7,8 @@ import site.petrtsv.corsairs.groups.UIGroup;
 
 /**
  * Created by Петр on 29.07.2017.
+ *
+ * Abstract model of menu.
  */
 
 public abstract class MenuWorld extends Stage

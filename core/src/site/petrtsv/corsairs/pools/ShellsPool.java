@@ -9,12 +9,17 @@ import site.petrtsv.corsairs.groups.ShellsGroup;
 
 /**
  * Created by Петр on 21.06.2017.
+ *
+ * Class, that stores unused shells.
  */
 public class ShellsPool
 {
+	@SuppressWarnings("unused")
 	public static final int MAX_SIZE = 20;
+	@SuppressWarnings("CanBeFinal")
 	private static ShellsPool ourInstance = new ShellsPool();
-	Array<Shell> shellsArray;
+	@SuppressWarnings("CanBeFinal")
+	private Array<Shell> shellsArray;
 
 	private ShellsPool()
 	{
@@ -26,7 +31,7 @@ public class ShellsPool
 		return ourInstance;
 	}
 
-	public Shell getShell(ShellsGroup group, float x, float y, Vector2 direction)
+	public Shell getShell(ShellsGroup group, @SuppressWarnings("SameParameterValue") float x, @SuppressWarnings("SameParameterValue") float y, Vector2 direction)
 	{
 		if (shellsArray.size < 1)
 		{

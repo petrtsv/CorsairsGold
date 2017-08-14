@@ -17,15 +17,19 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
 
 public class PlayButton extends GameButton
 {
+	@SuppressWarnings("CanBeFinal")
 	private MainMenuWorld world;
+	@SuppressWarnings("CanBeFinal")
 	private MainMenuUIGroup group;
+	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
+	@SuppressWarnings("CanBeFinal")
 	private TextureRegion pressedRegion;
 	private ButtonState state;
 	private int pointer;
 
 
-	public PlayButton(MainMenuUIGroup group, int x, int y)
+	public PlayButton(MainMenuUIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
 	{
 		this.group = group;
 		this.world = group.getWorld();
@@ -99,6 +103,7 @@ public class PlayButton extends GameButton
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public ButtonState getState()
 	{
 		return state;

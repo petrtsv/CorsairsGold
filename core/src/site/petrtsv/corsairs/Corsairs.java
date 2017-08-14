@@ -11,7 +11,7 @@ public class Corsairs extends Game
 {
 
 	private static final int SCREEN_HEIGHT = 800;
-	public int width = 0;
+	private int width = 0;
 
 	public Corsairs(float width, float height)
 	{

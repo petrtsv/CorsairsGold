@@ -3,7 +3,6 @@ package site.petrtsv.corsairs.actors.ui.buttons;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 import site.petrtsv.corsairs.groups.GameUIGroup;
@@ -11,14 +10,19 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 09.07.2017.
+ *
+ * Pause button.
  */
 public class PauseButton extends GameButton
 {
 	private static final float BUTTON_RADIUS = 20;
-	GameWorld world;
-	GameUIGroup group;
-	int pointer;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld world;
+	private GameUIGroup group;
+	@SuppressWarnings({"unused", "FieldCanBeLocal"})
+	private int pointer;
 
+	@SuppressWarnings("unused")
 	public PauseButton(GameUIGroup group, int x, int y)
 	{
 		this.group = group;
@@ -31,6 +35,7 @@ public class PauseButton extends GameButton
 		setTouchable(Touchable.enabled);
 	}
 
+	@SuppressWarnings("unused")
 	public PauseButton(GameWorld world, int x, int y)
 	{
 		this.world = world;
@@ -73,12 +78,6 @@ public class PauseButton extends GameButton
 	public void onTouchUp(int pointer)
 	{
 
-	}
-
-	@Override
-	public Actor hit(float x, float y, boolean touchable)
-	{
-		return super.hit(x, y, touchable);
 	}
 
 	@Override

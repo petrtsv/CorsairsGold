@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+@SuppressWarnings("unused")
 public class AndroidLauncher extends AndroidApplication
 {
 	@Override
@@ -30,14 +31,11 @@ public class AndroidLauncher extends AndroidApplication
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-		Log.i("GAMEINFO", "--0");
 		Display display = getWindowManager().getDefaultDisplay();
 		Point size = new Point();
 		display.getSize(size);
 		View gameView = initializeForView(new Corsairs(size.x, size.y), config);
-		Log.i("GAMEINFO", "--1");
 		layout.addView(gameView);
-		Log.i("GAMEINFO", "--2");
 		try
 		{
 			Log.i("GAMEINFO", "Init ads");
@@ -60,7 +58,6 @@ public class AndroidLauncher extends AndroidApplication
 			layout.addView(adView, adParams);
 			adView.setVisibility(View.VISIBLE);
 			Log.i("GAMEINFO/Ads", "" + adView.getAdUnitId());
-			Log.i("GAMEINFO", "" + adView.isShown());
 		} catch (Exception e)
 		{
 			Log.i("GAMEINFO", "ads error");

@@ -22,35 +22,39 @@ import site.petrtsv.corsairs.screens.GameScreen;
 
 /**
  * Created by Петр on 04.07.2017.
+ *
+ * Model, that contains logic of the game.
  */
 public class GameWorld extends Stage
 {
 	public static final int RADIUS = 200;
-	public static final float START_SHELL_VELOCITY = 325;
-	public static final float SHELL_VELOCITY_MULT = 1.025f;
-	public static final float START_SHELL_SPAWN_PERIOD = 0.325f;
-	public static final float SHELL_SPAWN_PERIOD_MULT = 0.975f;
+	private static final float START_SHELL_VELOCITY = 325;
+	private static final float SHELL_VELOCITY_MULT = 1.025f;
+	private static final float START_SHELL_SPAWN_PERIOD = 0.325f;
+	private static final float SHELL_SPAWN_PERIOD_MULT = 0.975f;
 
-	GameScreen screen;
-	OrthographicCamera camera;
-	Player player;
-	GameBackground background;
-	Tower tower;
+	@SuppressWarnings("CanBeFinal")
+	private GameScreen screen;
+	private OrthographicCamera camera;
+	private Player player;
+	private GameBackground background;
+	private Tower tower;
 
-	ScoresLabel scoresLabel;
-	ShapeRenderer shapeRenderer;
+	private ScoresLabel scoresLabel;
+	@SuppressWarnings("CanBeFinal")
+	private ShapeRenderer shapeRenderer;
 
-	CoinsGroup coinsGroup;
-	GameUIGroup uiGroup;
-	ShellsGroup shellsGroup;
+	private CoinsGroup coinsGroup;
+	private GameUIGroup uiGroup;
+	private ShellsGroup shellsGroup;
 
-	WorldState state;
-	float shellSpawnTime;
-	float shellVelocity;
-	float shellSpawnPeriod;
-	int coinsCount;
-	int highscore;
-	int score;
+	private WorldState state;
+	private float shellSpawnTime;
+	private float shellVelocity;
+	private float shellSpawnPeriod;
+	private int coinsCount;
+	private int highscore;
+	private int score;
 
 	public GameWorld(GameScreen screen)
 	{
@@ -71,19 +75,20 @@ public class GameWorld extends Stage
 		return score;
 	}
 
+	@SuppressWarnings("unused")
 	public void setScore(int score)
 	{
 		this.score = score;
 	}
 
-	public void initializeCamera()
+	private void initializeCamera()
 	{
 		camera = new OrthographicCamera(screen.width, screen.height);
 		camera.position.set(new Vector2(0, 0), 0);
 		camera.update();
 	}
 
-	public void initializeGame()
+	private void initializeGame()
 	{
 		player = new Player(this, RADIUS, 90, new Vector2(0, 0));
 		background = new GameBackground(this);
@@ -107,12 +112,12 @@ public class GameWorld extends Stage
 		updateHighscore();
 	}
 
-	public void updateHighscore()
+	private void updateHighscore()
 	{
 		highscore = SaveManager.getInstance().getRecord();
 	}
 
-	public void saveHighscore(int score)
+	private void saveHighscore(int score)
 	{
 		SaveManager.getInstance().saveRecord(score);
 	}
@@ -168,6 +173,7 @@ public class GameWorld extends Stage
 		return player;
 	}
 
+	@SuppressWarnings("unused")
 	public ScoresLabel getScoresLabel()
 	{
 		return scoresLabel;
@@ -193,14 +199,14 @@ public class GameWorld extends Stage
 		screen.onGameOver();
 	}
 
-	public void nextLevel()
+	private void nextLevel()
 	{
 		resetField();
 		shellVelocity *= SHELL_VELOCITY_MULT;
 		shellSpawnPeriod *= SHELL_SPAWN_PERIOD_MULT;
 	}
 
-	public void resetField()
+	private void resetField()
 	{
 		getRoot().removeActor(player);
 		getRoot().removeActor(coinsGroup);
@@ -221,7 +227,7 @@ public class GameWorld extends Stage
 		updateHighscore();
 	}
 
-	public void setZIndices()
+	private void setZIndices()
 	{
 		background.setZIndex(0);
 		coinsGroup.setZIndex(1);
@@ -256,6 +262,7 @@ public class GameWorld extends Stage
 		return uiGroup;
 	}
 
+	@SuppressWarnings("unused")
 	public enum WorldState
 	{
 		RUNNING, PAUSED

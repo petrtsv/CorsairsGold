@@ -13,17 +13,23 @@ import site.petrtsv.corsairs.screens.ResultScreen;
 
 /**
  * Created by Петр on 29.07.2017.
+ *
+ * Model, that represents result screen.
  */
 
 public class ResultWorld extends MenuWorld
 {
-	ResultScreen screen;
-	OrthographicCamera camera;
+	@SuppressWarnings("CanBeFinal")
+	private ResultScreen screen;
+	private OrthographicCamera camera;
 
-	ShapeRenderer shapeRenderer;
+	@SuppressWarnings("CanBeFinal")
+	private ShapeRenderer shapeRenderer;
 
-	UIGroup uiGroup;
-	BigSail sail;
+	@SuppressWarnings("CanBeFinal")
+	private UIGroup uiGroup;
+	@SuppressWarnings("CanBeFinal")
+	private BigSail sail;
 
 	public ResultWorld(ResultScreen screen)
 	{
@@ -44,7 +50,7 @@ public class ResultWorld extends MenuWorld
 		setZIndices();
 	}
 
-	public void initializeCamera()
+	private void initializeCamera()
 	{
 		camera = new OrthographicCamera(screen.width, screen.height);
 		camera.position.set(new Vector2(0, 0), 0);
@@ -62,7 +68,7 @@ public class ResultWorld extends MenuWorld
 		screen.onReplayButtonPressed();
 	}
 
-	public void setZIndices()
+	private void setZIndices()
 	{
 		sail.setZIndex(1);
 		uiGroup.setZIndex(5);

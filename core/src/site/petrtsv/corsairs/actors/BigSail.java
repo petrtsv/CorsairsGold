@@ -19,13 +19,16 @@ public class BigSail extends Actor
 {
 	private static final int IMAGE_HEIGHT = 94;
 	private static final int IMAGE_WIDTH = 132;
+	@SuppressWarnings("CanBeFinal")
 	private MenuWorld world;
+	@SuppressWarnings("CanBeFinal")
 	private Vector2 position;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private TextureRegion region;
 	private Sprite sprite;
 
 
-	public BigSail(MenuWorld world, float x, float y)
+	public BigSail(MenuWorld world, @SuppressWarnings("SameParameterValue") float x, @SuppressWarnings("SameParameterValue") float y)
 	{
 		this.world = world;
 		this.position = new Vector2(x, y);

@@ -11,21 +11,29 @@ import site.petrtsv.corsairs.models.ResultWorld;
 
 /**
  * Created by Петр on 29.07.2017.
+ *
+ * Screen with the results of a game.
  */
 
 public class ResultScreen implements Screen
 {
-	public static final float MAX_FPS = 60;
+	private static final float MAX_FPS = 60;
+	@SuppressWarnings("CanBeFinal")
 	public int width;
+	@SuppressWarnings("CanBeFinal")
 	public int height;
-	public float time;
+	private float time;
 
-	Corsairs game;
-	GameWorld gameResult;
-	MenuController controller;
-	ResultWorld model;
+	@SuppressWarnings("CanBeFinal")
+	private Corsairs game;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld gameResult;
+	@SuppressWarnings("CanBeFinal")
+	private MenuController controller;
+	@SuppressWarnings("CanBeFinal")
+	private ResultWorld model;
 
-	public ResultScreen(Corsairs game, int width, int height, GameWorld gameResult)
+	ResultScreen(Corsairs game, int width, int height, GameWorld gameResult)
 	{
 		this.game = game;
 		this.width = width;

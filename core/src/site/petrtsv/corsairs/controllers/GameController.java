@@ -10,12 +10,16 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
+ *
+ * Class, that process input during the game.
  */
 public class GameController implements InputProcessor
 {
-	GameWorld model;
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld model;
 
-	Vector2 touch;
+	@SuppressWarnings("CanBeFinal")
+	private Vector2 touch;
 
 	public GameController(GameWorld model)
 	{

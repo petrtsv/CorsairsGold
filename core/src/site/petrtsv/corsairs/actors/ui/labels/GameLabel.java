@@ -9,14 +9,16 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  * Created by Петр on 10.08.2017.
+ *
+ * Abstract label.
  */
 
-public abstract class GameLabel extends Actor
+abstract class GameLabel extends Actor
 {
-	public static final int SHADOW_OFFSET = 3;
-	public static final Color SHADOW_COLOR = Color.LIGHT_GRAY;
+	private static final int SHADOW_OFFSET = 3;
+	private static final Color SHADOW_COLOR = Color.LIGHT_GRAY;
 
-	boolean isCenteredX = false;
+	private boolean isCenteredX = false;
 
 	@Override
 	public void draw(Batch batch, float parentAlpha)
@@ -47,14 +49,14 @@ public abstract class GameLabel extends Actor
 		}
 	}
 
-	public void centerX(int x)
+	void centerX(@SuppressWarnings("SameParameterValue") int x)
 	{
 
 		isCenteredX = true;
 		getPosition().x = x;
 	}
 
-	public int getLabelWidth(String text)
+	private int getLabelWidth(String text)
 	{
 		int labelWidth = 0;
 		if (text.contains("\n"))
@@ -88,23 +90,26 @@ public abstract class GameLabel extends Actor
 		return labelWidth;
 	}
 
-	public int getShadowOffset()
+	@SuppressWarnings("SameReturnValue")
+	private int getShadowOffset()
 	{
 		return SHADOW_OFFSET;
 	}
 
-	public Color getShadowColor()
+	@SuppressWarnings("SameReturnValue")
+	private Color getShadowColor()
 	{
 		return SHADOW_COLOR;
 	}
 
-	public abstract String getText();
+	protected abstract String getText();
 
+	@SuppressWarnings("unused")
 	public abstract void setText(String text);
 
-	public abstract Vector2 getPosition();
+	protected abstract Vector2 getPosition();
 
-	public abstract BitmapFont getFont();
+	protected abstract BitmapFont getFont();
 
 	public abstract Color getColor();
 }
