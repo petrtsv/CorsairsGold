@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import site.petrtsv.corsairs.actors.interfaces.Destructible;
 import site.petrtsv.corsairs.groups.ShellsGroup;
+import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.pools.ShellsPool;
@@ -155,6 +156,7 @@ public class Shell extends Actor implements Destructible
 				destruct();
 			} else if (isCollide())
 			{
+				AudioManager.getInstance().playSound("explosion");
 				setPosition(world.getPlayer().getX(), world.getPlayer().getY());
 				world.onShellCollision();
 				setState(ShellState.EXPLOSION);

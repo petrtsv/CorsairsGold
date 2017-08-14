@@ -1,0 +1,12 @@
+{
+  "sounds": [
+    {
+      "path": "audio coin_collected.wav",
+      "name": "coin_collected"
+    },
+    {
+      "path": "audio explosion.wav",
+      "name": "explosion"
+    }
+  ]
+}

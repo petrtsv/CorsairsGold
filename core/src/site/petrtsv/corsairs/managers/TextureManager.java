@@ -22,8 +22,7 @@ import java.util.Map;
  */
 public class TextureManager
 {
-	@SuppressWarnings("unused")
-	public static final String ATLASES_CATALOG_PATH = "catalogs" +
+	private static final String ATLASES_CATALOG_PATH = "catalogs" +
 			File.separator + "atlases_catalog.ctlg";
 	@SuppressWarnings("CanBeFinal")
 	private static TextureManager ourInstance = new TextureManager();
@@ -49,12 +48,13 @@ public class TextureManager
 		return ourInstance;
 	}
 
-	public void loadAtlases()
+	public void loadAtlasesCatalog()
 	{
+
 		try
 		{
 			FileHandle catalogFileHandle =
-					Gdx.files.internal("").child("catalogs").child("atlases_catalog.ctlg");
+					Gdx.files.internal(ATLASES_CATALOG_PATH);
 
 			Type type = new TypeToken<Map<String, Map<String, String>[]>>()
 			{

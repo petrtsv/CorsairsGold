@@ -17,6 +17,7 @@ import site.petrtsv.corsairs.actors.ui.labels.ScoresLabel;
 import site.petrtsv.corsairs.groups.CoinsGroup;
 import site.petrtsv.corsairs.groups.GameUIGroup;
 import site.petrtsv.corsairs.groups.ShellsGroup;
+import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.SaveManager;
 import site.petrtsv.corsairs.screens.GameScreen;
 
@@ -181,6 +182,7 @@ public class GameWorld extends Stage
 
 	public void onCoinCollected()
 	{
+		AudioManager.getInstance().playSound("coin_collected");
 		score += Coin.COIN_SCORE;
 		scoresLabel.setValue(score);
 		if (score > highscore)

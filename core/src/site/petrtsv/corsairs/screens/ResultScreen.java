@@ -11,7 +11,7 @@ import site.petrtsv.corsairs.models.ResultWorld;
 
 /**
  * Created by Петр on 29.07.2017.
- *
+ * <p>
  * Screen with the results of a game.
  */
 
