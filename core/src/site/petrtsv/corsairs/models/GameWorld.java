@@ -1,11 +1,11 @@
 package site.petrtsv.corsairs.models;
 
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
@@ -19,14 +19,16 @@ import site.petrtsv.corsairs.groups.GameUIGroup;
 import site.petrtsv.corsairs.groups.ShellsGroup;
 import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.SaveManager;
+import site.petrtsv.corsairs.screens.AppScreen;
 import site.petrtsv.corsairs.screens.GameScreen;
+import site.petrtsv.corsairs.screens.ResultScreen;
 
 /**
  * Created by Петр on 04.07.2017.
  *
  * Model, that contains logic of the game.
  */
-public class GameWorld extends Stage
+public class GameWorld extends Model
 {
 	public static final int RADIUS = 200;
 	private static final float START_SHELL_VELOCITY = 325;
@@ -35,7 +37,7 @@ public class GameWorld extends Stage
 	private static final float SHELL_SPAWN_PERIOD_MULT = 0.975f;
 
 	@SuppressWarnings("CanBeFinal")
-	private GameScreen screen;
+	private AppScreen screen;
 	private OrthographicCamera camera;
 	private Player player;
 	private GameBackground background;
@@ -84,7 +86,7 @@ public class GameWorld extends Stage
 
 	private void initializeCamera()
 	{
-		camera = new OrthographicCamera(screen.width, screen.height);
+		camera = new OrthographicCamera(screen.getWidth(), screen.getHeight());
 		camera.position.set(new Vector2(0, 0), 0);
 		camera.update();
 	}
@@ -198,7 +200,14 @@ public class GameWorld extends Stage
 		{
 			saveHighscore(score);
 		}
-		screen.onGameOver();
+		onGameOver();
+	}
+
+	private void onGameOver()
+	{
+		Screen newScreen = new ResultScreen(screen.getGame(), screen.getWidth(),
+				screen.getHeight(), this);
+		screen.newScreen(newScreen);
 	}
 
 	private void nextLevel()
@@ -262,6 +271,12 @@ public class GameWorld extends Stage
 	public GameUIGroup getUiGroup()
 	{
 		return uiGroup;
+	}
+
+	@Override
+	public AppScreen getScreen()
+	{
+		return screen;
 	}
 
 	@SuppressWarnings("unused")

@@ -1,26 +1,30 @@
 package site.petrtsv.corsairs.actors.ui.buttons;
 
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
-import site.petrtsv.corsairs.groups.ResultUIGroup;
+import site.petrtsv.corsairs.groups.UIGroup;
+import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
-import site.petrtsv.corsairs.models.ResultWorld;
+import site.petrtsv.corsairs.models.Model;
+import site.petrtsv.corsairs.screens.AppScreen;
+import site.petrtsv.corsairs.screens.GameScreen;
 
 /**
  * Created by Петр on 29.07.2017.
- *
+ * <p>
  * Replay button on the result screen.
  */
 
 public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameButton
 {
 	@SuppressWarnings("CanBeFinal")
-	private ResultWorld world;
+	private Model world;
 	@SuppressWarnings("CanBeFinal")
-	private ResultUIGroup group;
+	private UIGroup group;
 	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
 	@SuppressWarnings("CanBeFinal")
@@ -29,7 +33,7 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 	private int pointer;
 
 
-	public ReplayButton(ResultUIGroup group, @SuppressWarnings("SameParameterValue") int x, int y)
+	public ReplayButton(UIGroup group, @SuppressWarnings("SameParameterValue") int x, int y)
 	{
 		this.group = group;
 		this.world = group.getWorld();
@@ -73,6 +77,7 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 	public void onTouchDown(int pointer)
 	{
 		this.pointer = pointer;
+		AudioManager.getInstance().playSound("click");
 		setState(ButtonState.PRESSED);
 	}
 
@@ -82,7 +87,10 @@ public class ReplayButton extends site.petrtsv.corsairs.actors.ui.buttons.GameBu
 		if (this.pointer == pointer)
 		{
 			setState(ButtonState.NOTPRESSED);
-			world.onReplayButtonPressed();
+			AppScreen screen = world.getScreen();
+			Screen newScreen = new GameScreen(screen.getGame(),
+					screen.getWidth(), screen.getHeight());
+			screen.newScreen(newScreen);
 			this.pointer = -1;
 		}
 

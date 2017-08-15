@@ -1,13 +1,17 @@
 package site.petrtsv.corsairs.actors.ui.buttons;
 
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
-import site.petrtsv.corsairs.groups.MainMenuUIGroup;
+import site.petrtsv.corsairs.groups.UIGroup;
+import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
-import site.petrtsv.corsairs.models.MainMenuWorld;
+import site.petrtsv.corsairs.models.Model;
+import site.petrtsv.corsairs.screens.AppScreen;
+import site.petrtsv.corsairs.screens.GameScreen;
 
 /**
  * Created by Петр on 25.07.2017.
@@ -18,9 +22,9 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
 public class PlayButton extends GameButton
 {
 	@SuppressWarnings("CanBeFinal")
-	private MainMenuWorld world;
+	private Model world;
 	@SuppressWarnings("CanBeFinal")
-	private MainMenuUIGroup group;
+	private UIGroup group;
 	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
 	@SuppressWarnings("CanBeFinal")
@@ -29,7 +33,7 @@ public class PlayButton extends GameButton
 	private int pointer;
 
 
-	public PlayButton(MainMenuUIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
+	public PlayButton(UIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
 	{
 		this.group = group;
 		this.world = group.getWorld();
@@ -73,6 +77,7 @@ public class PlayButton extends GameButton
 	public void onTouchDown(int pointer)
 	{
 		this.pointer = pointer;
+		AudioManager.getInstance().playSound("click");
 		setState(ButtonState.PRESSED);
 	}
 
@@ -82,7 +87,10 @@ public class PlayButton extends GameButton
 		if (this.pointer == pointer)
 		{
 			setState(ButtonState.NOTPRESSED);
-			world.onPlayButtonPressed();
+			AppScreen screen = world.getScreen();
+			Screen newScreen = new GameScreen(screen.getGame(),
+					screen.getWidth(), screen.getHeight());
+			screen.newScreen(newScreen);
 			this.pointer = -1;
 		}
 	}

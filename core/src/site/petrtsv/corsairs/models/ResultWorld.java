@@ -9,11 +9,12 @@ import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import site.petrtsv.corsairs.actors.BigSail;
 import site.petrtsv.corsairs.groups.ResultUIGroup;
 import site.petrtsv.corsairs.groups.UIGroup;
+import site.petrtsv.corsairs.screens.AppScreen;
 import site.petrtsv.corsairs.screens.ResultScreen;
 
 /**
  * Created by Петр on 29.07.2017.
- *
+ * <p>
  * Model, that represents result screen.
  */
 
@@ -52,7 +53,7 @@ public class ResultWorld extends MenuWorld
 
 	private void initializeCamera()
 	{
-		camera = new OrthographicCamera(screen.width, screen.height);
+		camera = new OrthographicCamera(screen.getWidth(), screen.getHeight());
 		camera.position.set(new Vector2(0, 0), 0);
 		camera.update();
 	}
@@ -61,11 +62,6 @@ public class ResultWorld extends MenuWorld
 	public UIGroup getUIGroup()
 	{
 		return uiGroup;
-	}
-
-	public void onReplayButtonPressed()
-	{
-		screen.onReplayButtonPressed();
 	}
 
 	private void setZIndices()
@@ -90,5 +86,11 @@ public class ResultWorld extends MenuWorld
 	{
 		super.dispose();
 		uiGroup.dispose();
+	}
+
+	@Override
+	public AppScreen getScreen()
+	{
+		return screen;
 	}
 }

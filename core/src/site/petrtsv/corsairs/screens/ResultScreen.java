@@ -1,7 +1,6 @@
 package site.petrtsv.corsairs.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import site.petrtsv.corsairs.Corsairs;
@@ -15,17 +14,16 @@ import site.petrtsv.corsairs.models.ResultWorld;
  * Screen with the results of a game.
  */
 
-public class ResultScreen implements Screen
+public class ResultScreen extends AppScreen
 {
 	private static final float MAX_FPS = 60;
 	@SuppressWarnings("CanBeFinal")
-	public int width;
+	private int width;
 	@SuppressWarnings("CanBeFinal")
-	public int height;
-	private float time;
-
+	private int height;
 	@SuppressWarnings("CanBeFinal")
 	private Corsairs game;
+	private float time;
 	@SuppressWarnings("CanBeFinal")
 	private GameWorld gameResult;
 	@SuppressWarnings("CanBeFinal")
@@ -33,7 +31,7 @@ public class ResultScreen implements Screen
 	@SuppressWarnings("CanBeFinal")
 	private ResultWorld model;
 
-	ResultScreen(Corsairs game, int width, int height, GameWorld gameResult)
+	public ResultScreen(Corsairs game, int width, int height, GameWorld gameResult)
 	{
 		this.game = game;
 		this.width = width;
@@ -44,12 +42,6 @@ public class ResultScreen implements Screen
 
 	}
 
-	public void onReplayButtonPressed()
-	{
-		dispose();
-		Screen newScreen = new GameScreen(game, width, height);
-		game.setScreen(newScreen);
-	}
 
 	@Override
 	public void show()
@@ -76,6 +68,7 @@ public class ResultScreen implements Screen
 	{
 		return gameResult;
 	}
+
 
 	@Override
 	public void resize(int width, int height)
@@ -105,5 +98,23 @@ public class ResultScreen implements Screen
 	public void dispose()
 	{
 
+	}
+
+	@Override
+	public Corsairs getGame()
+	{
+		return game;
+	}
+
+	@Override
+	public int getWidth()
+	{
+		return width;
+	}
+
+	@Override
+	public int getHeight()
+	{
+		return height;
 	}
 }

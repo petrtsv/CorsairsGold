@@ -1,7 +1,6 @@
 package site.petrtsv.corsairs.models;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import site.petrtsv.corsairs.groups.UIGroup;
 
@@ -11,7 +10,7 @@ import site.petrtsv.corsairs.groups.UIGroup;
  * Abstract model of menu.
  */
 
-public abstract class MenuWorld extends Stage
+public abstract class MenuWorld extends Model
 {
 	public abstract UIGroup getUIGroup();
 

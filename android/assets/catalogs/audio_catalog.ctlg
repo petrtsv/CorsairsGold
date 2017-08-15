@@ -7,6 +7,10 @@
     {
       "path": "audio explosion.wav",
       "name": "explosion"
+    },
+    {
+      "path": "audio click.ogg",
+      "name": "click"
     }
   ]
 }

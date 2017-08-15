@@ -1,7 +1,6 @@
 package site.petrtsv.corsairs.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import site.petrtsv.corsairs.Corsairs;
@@ -10,16 +9,16 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
- *
+ * <p>
  * Screen with the game.
  */
-public class GameScreen implements Screen
+public class GameScreen extends AppScreen
 {
 	private static final float MAX_FPS = 120;
 	@SuppressWarnings("CanBeFinal")
-	public int width;
+	private int width;
 	@SuppressWarnings("CanBeFinal")
-	public int height;
+	private int height;
 	private float time;
 
 	@SuppressWarnings("CanBeFinal")
@@ -30,7 +29,7 @@ public class GameScreen implements Screen
 	private GameWorld model;
 
 
-	GameScreen(Corsairs game, int width, int height)
+	public GameScreen(Corsairs game, int width, int height)
 	{
 		this.game = game;
 		this.width = width;
@@ -63,13 +62,6 @@ public class GameScreen implements Screen
 
 	}
 
-	public void onGameOver()
-	{
-		dispose();
-		Screen newScreen = new ResultScreen(game, width, height, model);
-		game.setScreen(newScreen);
-	}
-
 	@Override
 	public void resize(int width, int height)
 	{
@@ -98,6 +90,24 @@ public class GameScreen implements Screen
 	public void dispose()
 	{
 		model.dispose();
+	}
+
+	@Override
+	public Corsairs getGame()
+	{
+		return game;
+	}
+
+	@Override
+	public int getWidth()
+	{
+		return width;
+	}
+
+	@Override
+	public int getHeight()
+	{
+		return height;
 	}
 }
 

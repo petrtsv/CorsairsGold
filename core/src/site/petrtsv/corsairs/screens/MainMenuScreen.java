@@ -1,7 +1,6 @@
 package site.petrtsv.corsairs.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import site.petrtsv.corsairs.Corsairs;
@@ -14,7 +13,7 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
  * Screen with the main menu.
  */
 
-public class MainMenuScreen implements Screen
+public class MainMenuScreen extends AppScreen
 {
 
 	private static final float MAX_FPS = 60;
@@ -62,12 +61,6 @@ public class MainMenuScreen implements Screen
 
 	}
 
-	public void onPlayButtonPressed()
-	{
-		dispose();
-		Screen newScreen = new GameScreen(game, width, height);
-		game.setScreen(newScreen);
-	}
 
 	@Override
 	public void resize(int width, int height)
@@ -97,5 +90,23 @@ public class MainMenuScreen implements Screen
 	public void dispose()
 	{
 		model.dispose();
+	}
+
+	@Override
+	public Corsairs getGame()
+	{
+		return game;
+	}
+
+	@Override
+	public int getWidth()
+	{
+		return width;
+	}
+
+	@Override
+	public int getHeight()
+	{
+		return height;
 	}
 }

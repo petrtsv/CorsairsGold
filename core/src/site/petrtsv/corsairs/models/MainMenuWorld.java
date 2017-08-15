@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
 import site.petrtsv.corsairs.groups.MainMenuUIGroup;
 import site.petrtsv.corsairs.groups.UIGroup;
+import site.petrtsv.corsairs.screens.AppScreen;
 import site.petrtsv.corsairs.screens.MainMenuScreen;
 
 /**
@@ -56,11 +57,6 @@ public class MainMenuWorld extends MenuWorld
 		return uiGroup;
 	}
 
-	public void onPlayButtonPressed()
-	{
-		screen.onPlayButtonPressed();
-	}
-
 	private void setZIndices()
 	{
 		uiGroup.setZIndex(5);
@@ -77,5 +73,11 @@ public class MainMenuWorld extends MenuWorld
 	{
 		super.dispose();
 		uiGroup.dispose();
+	}
+
+	@Override
+	public AppScreen getScreen()
+	{
+		return screen;
 	}
 }

@@ -29,7 +29,7 @@ public class Shell extends Actor implements Destructible
 	private static final int IMAGE_WIDTH = 15;
 	private static final int IMAGE_HEIGHT = 22;
 	private static final float EXPLOSION_SCALE = 0.75f;
-	private static final float DESTRUCTION_TIME = 0.2f;
+	private static final float DESTRUCTION_TIME = 0.25f;
 
 
 	@SuppressWarnings("CanBeFinal")

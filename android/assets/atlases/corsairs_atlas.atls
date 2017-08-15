@@ -26,9 +26,9 @@
     "y": 0,
     "width": 100,
     "height": 100
-  }, 
+  },
   {
-	"name": "tower",
+    "name": "tower",
     "x": 208,
     "y": 0,
     "width": 52,
@@ -89,7 +89,26 @@
     "y": 0,
     "width": 132,
     "height": 92
+  },
+  {
+    "name": "audio_off",
+    "x": 967,
+    "y": 0,
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "audio_on",
+    "x": 967,
+    "y": 37,
+    "width": 36,
+    "height": 36
+  },
+  {
+    "name": "back_button",
+    "x": 1004,
+    "y": 0,
+    "width": 39,
+    "height": 31
   }
-
-  
 ]

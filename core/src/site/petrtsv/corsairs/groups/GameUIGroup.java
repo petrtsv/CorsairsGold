@@ -5,19 +5,17 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
-import site.petrtsv.corsairs.actors.ui.buttons.PauseButton;
 import site.petrtsv.corsairs.actors.ui.labels.LowerLabel;
 import site.petrtsv.corsairs.models.GameWorld;
+import site.petrtsv.corsairs.models.Model;
 
 /**
  * Created by Петр on 09.07.2017.
- *
+ * <p>
  * Group, that controls UI elements during the game.
  */
 public class GameUIGroup extends UIGroup implements Disposable
 {
-	@SuppressWarnings("unused")
-	PauseButton pauseButton;
 	@SuppressWarnings("CanBeFinal")
 	private GameWorld world;
 	@SuppressWarnings("CanBeFinal")
@@ -31,16 +29,14 @@ public class GameUIGroup extends UIGroup implements Disposable
 		setX(0);
 		setY(0);
 		buttons = new Array<GameButton>();
-//		pauseButton = new PauseButton(this, -200, 350);
-//		buttons.add(pauseButton);
-//		addActor(pauseButton);
+
 		lowerLabel = new LowerLabel(this);
 		addActor(lowerLabel);
 		setTouchable(Touchable.enabled);
 	}
 
 	@Override
-	public GameWorld getWorld()
+	public Model getWorld()
 	{
 		return world;
 	}

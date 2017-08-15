@@ -26,17 +26,20 @@ public class AudioManager
 	private static final String AUDIO_CATALOG_PATH = "catalogs" +
 			File.separator + "audio_catalog.ctlg";
 	private static final AudioManager ourInstance = new AudioManager();
+	@SuppressWarnings("CanBeFinal")
 	private Map<String, Sound> sounds;
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private GsonBuilder gsonBuilder;
 	@SuppressWarnings("CanBeFinal")
 	private Gson gson;
+	private float volume;
 
 	private AudioManager()
 	{
 		gsonBuilder = new GsonBuilder();
 		gson = gsonBuilder.create();
 		sounds = new HashMap<String, Sound>();
+		volume = 1;
 	}
 
 	public static AudioManager getInstance()
@@ -87,10 +90,20 @@ public class AudioManager
 		return sound;
 	}
 
+	@SuppressWarnings("UnusedReturnValue")
 	public long playSound(String name)
 	{
 		Sound sound = sounds.get(name);
-		return sound.play(1);
+		return sound.play(volume);
 	}
 
+	public float getVolume()
+	{
+		return volume;
+	}
+
+	public void setVolume(float volume)
+	{
+		this.volume = volume;
+	}
 }
