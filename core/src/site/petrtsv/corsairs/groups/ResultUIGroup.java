@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.Array;
 
-import site.petrtsv.corsairs.actors.ui.buttons.BackButton;
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
+import site.petrtsv.corsairs.actors.ui.buttons.MenuButton;
 import site.petrtsv.corsairs.actors.ui.buttons.ReplayButton;
 import site.petrtsv.corsairs.actors.ui.labels.RecordLabel;
 import site.petrtsv.corsairs.actors.ui.labels.ResultLabel;
@@ -29,7 +29,7 @@ public class ResultUIGroup extends UIGroup
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private ReplayButton replayButton;
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
-	private BackButton backButton;
+	private MenuButton menuButton;
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private ResultLabel resultLabel;
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
@@ -43,8 +43,8 @@ public class ResultUIGroup extends UIGroup
 		setX(0);
 		setY(0);
 		buttons = new Array<GameButton>();
-		replayButton = new ReplayButton(this, 0, -200);
-		backButton = new BackButton(this, -200, 350);
+		replayButton = new ReplayButton(this, 0, -125);
+		menuButton = new MenuButton(this, 0, -250);
 		int result = world.getGameResult().getScore();
 		int record = SaveManager.getInstance().getRecord();
 		resultLabel = new ResultLabel(this, result, 25);
@@ -52,9 +52,9 @@ public class ResultUIGroup extends UIGroup
 		header = new ScreenHeader(this, 300, "GAME OVER", special);
 		recordLabel = new RecordLabel(this, Color.WHITE, special, -20, result, record);
 		buttons.add(replayButton);
-		buttons.add(backButton);
+		buttons.add(menuButton);
 		addActor(replayButton);
-		addActor(backButton);
+		addActor(menuButton);
 		addActor(resultLabel);
 		addActor(recordLabel);
 		addActor(header);

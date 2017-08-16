@@ -105,10 +105,17 @@
     "height": 36
   },
   {
-    "name": "back_button",
+    "name": "menu_button_notpressed",
     "x": 1004,
     "y": 0,
-    "width": 39,
-    "height": 31
+    "width": 191,
+    "height": 49
+  },
+  {
+    "name": "menu_button_pressed",
+    "x": 1004,
+    "y": 50,
+    "width": 191,
+    "height": 45
   }
 ]

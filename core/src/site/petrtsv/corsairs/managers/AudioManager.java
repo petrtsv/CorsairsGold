@@ -1,6 +1,7 @@
 package site.petrtsv.corsairs.managers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.google.gson.Gson;
@@ -25,6 +26,7 @@ public class AudioManager
 {
 	private static final String AUDIO_CATALOG_PATH = "catalogs" +
 			File.separator + "audio_catalog.ctlg";
+	private static final String AUDIO_PREFERENCES_NAME = "audio_preferences";
 	private static final AudioManager ourInstance = new AudioManager();
 	@SuppressWarnings("CanBeFinal")
 	private Map<String, Sound> sounds;
@@ -33,13 +35,16 @@ public class AudioManager
 	@SuppressWarnings("CanBeFinal")
 	private Gson gson;
 	private float volume;
+	@SuppressWarnings("CanBeFinal")
+	private Preferences audioPrefs;
 
 	private AudioManager()
 	{
 		gsonBuilder = new GsonBuilder();
 		gson = gsonBuilder.create();
 		sounds = new HashMap<String, Sound>();
-		volume = 1;
+		audioPrefs = Gdx.app.getPreferences(AUDIO_PREFERENCES_NAME);
+		volume = audioPrefs.getFloat("volume", 1);
 	}
 
 	public static AudioManager getInstance()
@@ -105,5 +110,7 @@ public class AudioManager
 	public void setVolume(float volume)
 	{
 		this.volume = volume;
+		audioPrefs.putFloat("volume", this.volume);
+		audioPrefs.flush();
 	}
 }

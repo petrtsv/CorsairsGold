@@ -212,6 +212,7 @@ public class GameWorld extends Model
 
 	private void nextLevel()
 	{
+		AudioManager.getInstance().playSound("levelup");
 		resetField();
 		shellVelocity *= SHELL_VELOCITY_MULT;
 		shellSpawnPeriod *= SHELL_SPAWN_PERIOD_MULT;

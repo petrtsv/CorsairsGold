@@ -11,6 +11,10 @@
     {
       "path": "audio click.ogg",
       "name": "click"
+    },
+    {
+      "path": "audio levelup.mp3",
+      "name": "levelup"
     }
   ]
 }
