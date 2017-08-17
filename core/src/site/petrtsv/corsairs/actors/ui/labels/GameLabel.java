@@ -9,19 +9,24 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 /**
  * Created by Петр on 10.08.2017.
- *
+ * <p>
  * Abstract label.
  */
 
 abstract class GameLabel extends Actor
 {
-	private static final int SHADOW_OFFSET = 3;
-	private static final Color SHADOW_COLOR = Color.LIGHT_GRAY;
+	private static final int SHADOW_OFFSET = 1;
+	private static final Color SHADOW_COLOR = Color.GRAY;
 
 	private boolean isCenteredX = false;
 
 	@Override
 	public void draw(Batch batch, float parentAlpha)
+	{
+		drawCenteredByLines(batch);
+	}
+
+	private void drawCenteredByLines(Batch batch)
 	{
 		BitmapFont font = getFont();
 
@@ -38,6 +43,35 @@ abstract class GameLabel extends Actor
 			{
 				offsetX = -(getLabelWidth(line) / 2);
 			}
+			font.setColor(shadowColor);
+			font.draw(batch, line,
+					getPosition().x + offsetX + shadowOffset, currentY - shadowOffset);
+
+			font.setColor(getColor());
+			font.draw(batch, line, getPosition().x + offsetX, currentY);
+
+			currentY -= font.getLineHeight();
+		}
+	}
+
+	void drawCenteredByWidth(Batch batch)
+	{
+		BitmapFont font = getFont();
+
+		float currentY = getPosition().y;
+
+		int shadowOffset = getShadowOffset();
+		Color shadowColor = getShadowColor();
+		int offsetX = 0;
+		String text = getText();
+		String[] lines = text.split("\n");
+		if (isCenteredX)
+		{
+			offsetX = -(getLabelWidth(getText()) / 2);
+		}
+
+		for (String line : lines)
+		{
 			font.setColor(shadowColor);
 			font.draw(batch, line,
 					getPosition().x + offsetX + shadowOffset, currentY - shadowOffset);
@@ -91,7 +125,7 @@ abstract class GameLabel extends Actor
 	}
 
 	@SuppressWarnings("SameReturnValue")
-	private int getShadowOffset()
+	int getShadowOffset()
 	{
 		return SHADOW_OFFSET;
 	}

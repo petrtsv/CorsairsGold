@@ -8,7 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import site.petrtsv.corsairs.groups.UIGroup;
 import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
-import site.petrtsv.corsairs.models.Model;
 
 /**
  * Created by Петр on 15.08.2017.
@@ -18,10 +17,6 @@ import site.petrtsv.corsairs.models.Model;
 
 public class MusicSelector extends GameButton
 {
-	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
-	private Model world;
-	@SuppressWarnings("CanBeFinal")
-	private UIGroup group;
 	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
 	@SuppressWarnings("CanBeFinal")
@@ -31,10 +26,7 @@ public class MusicSelector extends GameButton
 
 	public MusicSelector(UIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
 	{
-		this.group = group;
-		this.world = group.getWorld();
-		setX(x);
-		setY(y);
+		super(group, x, y);
 		usualRegion = TextureManager.getInstance().getTextureRegion("audio_on");
 		pressedRegion = TextureManager.getInstance().getTextureRegion("audio_off");
 		setSize(usualRegion.getRegionWidth(), usualRegion.getRegionHeight());

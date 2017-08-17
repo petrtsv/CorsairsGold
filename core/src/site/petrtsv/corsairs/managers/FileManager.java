@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * Created by Петр on 10.07.2017.
- *
+ * <p>
  * Class, that access file system.
  */
 class FileManager

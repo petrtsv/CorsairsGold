@@ -11,7 +11,7 @@ import site.petrtsv.corsairs.models.MenuWorld;
 
 /**
  * Created by Петр on 02.08.2017.
- *
+ * <p>
  * Sail, that appears in the center of result screen.
  */
 

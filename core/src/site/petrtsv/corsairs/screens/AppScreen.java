@@ -12,6 +12,10 @@ import site.petrtsv.corsairs.Corsairs;
 
 public abstract class AppScreen implements Screen
 {
+	int width;
+	int height;
+	Corsairs game;
+
 	public abstract Corsairs getGame();
 
 	public void newScreen(Screen screen)

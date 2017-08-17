@@ -1,8 +1,6 @@
 package site.petrtsv.corsairs.models;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
@@ -21,20 +19,18 @@ import site.petrtsv.corsairs.screens.ResultScreen;
 public class ResultWorld extends MenuWorld
 {
 	@SuppressWarnings("CanBeFinal")
-	private ResultScreen screen;
-	private OrthographicCamera camera;
-
-	@SuppressWarnings("CanBeFinal")
 	private ShapeRenderer shapeRenderer;
 
 	@SuppressWarnings("CanBeFinal")
-	private UIGroup uiGroup;
-	@SuppressWarnings("CanBeFinal")
 	private BigSail sail;
+
+	@SuppressWarnings("CanBeFinal")
+	private GameWorld result;
 
 	public ResultWorld(ResultScreen screen)
 	{
 		this.screen = screen;
+		this.result = screen.getGameResult();
 
 		initializeCamera();
 		setViewport(new ScalingViewport(Scaling.stretch, camera.viewportWidth,
@@ -43,19 +39,12 @@ public class ResultWorld extends MenuWorld
 		shapeRenderer.setAutoShapeType(true);
 		shapeRenderer.setProjectionMatrix(getCamera().combined);
 
-		uiGroup = new ResultUIGroup(this);
+		uiGroup = new ResultUIGroup(this, getGameResult());
 		addActor(uiGroup);
 		sail = new BigSail(this, 0, 125);
 		addActor(sail);
 
 		setZIndices();
-	}
-
-	private void initializeCamera()
-	{
-		camera = new OrthographicCamera(screen.getWidth(), screen.getHeight());
-		camera.position.set(new Vector2(0, 0), 0);
-		camera.update();
 	}
 
 	@Override
@@ -70,9 +59,9 @@ public class ResultWorld extends MenuWorld
 		uiGroup.setZIndex(5);
 	}
 
-	public GameWorld getGameResult()
+	private GameWorld getGameResult()
 	{
-		return screen.getGameResult();
+		return result;
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 23.07.2017.
- *
+ * <p>
  * Label in the bottom of screen.
  */
 

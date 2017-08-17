@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by petrtsv on 22.07.2017.
- *
+ * <p>
  * Tower in the center of the game field.
  */
 

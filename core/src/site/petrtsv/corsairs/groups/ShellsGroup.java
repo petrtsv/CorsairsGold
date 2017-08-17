@@ -13,7 +13,7 @@ import site.petrtsv.corsairs.pools.ShellsPool;
 
 /**
  * Created by Петр on 10.07.2017.
- *
+ * <p>
  * Group, that control shell during the game.
  */
 public class ShellsGroup extends Group implements Disposable

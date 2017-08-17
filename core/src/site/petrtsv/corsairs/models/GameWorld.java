@@ -2,7 +2,6 @@ package site.petrtsv.corsairs.models;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -25,7 +24,7 @@ import site.petrtsv.corsairs.screens.ResultScreen;
 
 /**
  * Created by Петр on 04.07.2017.
- *
+ * <p>
  * Model, that contains logic of the game.
  */
 public class GameWorld extends Model
@@ -36,9 +35,6 @@ public class GameWorld extends Model
 	private static final float START_SHELL_SPAWN_PERIOD = 0.325f;
 	private static final float SHELL_SPAWN_PERIOD_MULT = 0.975f;
 
-	@SuppressWarnings("CanBeFinal")
-	private AppScreen screen;
-	private OrthographicCamera camera;
 	private Player player;
 	private GameBackground background;
 	private Tower tower;
@@ -84,12 +80,6 @@ public class GameWorld extends Model
 		this.score = score;
 	}
 
-	private void initializeCamera()
-	{
-		camera = new OrthographicCamera(screen.getWidth(), screen.getHeight());
-		camera.position.set(new Vector2(0, 0), 0);
-		camera.update();
-	}
 
 	private void initializeGame()
 	{

@@ -5,10 +5,10 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
+import site.petrtsv.corsairs.actors.ui.buttons.InfoButton;
 import site.petrtsv.corsairs.actors.ui.buttons.MusicSelector;
 import site.petrtsv.corsairs.actors.ui.buttons.PlayButton;
-import site.petrtsv.corsairs.actors.ui.labels.ScreenHeader;
-import site.petrtsv.corsairs.models.MainMenuWorld;
+import site.petrtsv.corsairs.actors.ui.labels.LargeHeader;
 import site.petrtsv.corsairs.models.Model;
 
 /**
@@ -23,10 +23,13 @@ public class MainMenuUIGroup extends UIGroup implements Disposable
 	private PlayButton playButton;
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private MusicSelector musicSelector;
-	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
-	private ScreenHeader header;
 
-	public MainMenuUIGroup(MainMenuWorld world)
+	@SuppressWarnings({"FieldCanBeLocal", "CanBeFinal"})
+	private InfoButton infoButton;
+	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
+	private LargeHeader header;
+
+	public MainMenuUIGroup(Model world)
 	{
 		this.world = world;
 		setX(0);
@@ -39,11 +42,15 @@ public class MainMenuUIGroup extends UIGroup implements Disposable
 		musicSelector = new MusicSelector(this, -200, 350);
 		buttons.add(musicSelector);
 
-		header = new ScreenHeader(this, 300, "CORSAIRS\nGOLD", UIGroup.SPECIAL_UI);
+		infoButton = new InfoButton(this, 0, -250);
+		buttons.add(infoButton);
+
+		header = new LargeHeader(this, 300, "CORSAIRS\nGOLD", UIGroup.SPECIAL_UI);
 
 		addActor(header);
 		addActor(playButton);
 		addActor(musicSelector);
+		addActor(infoButton);
 
 		setTouchable(Touchable.enabled);
 	}

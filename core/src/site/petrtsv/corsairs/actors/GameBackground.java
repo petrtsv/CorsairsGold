@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 22.07.2017.
- *
+ * <p>
  * Background of the game screen: isle and circle.
  */
 

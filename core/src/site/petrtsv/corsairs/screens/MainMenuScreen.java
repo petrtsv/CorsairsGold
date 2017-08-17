@@ -9,7 +9,7 @@ import site.petrtsv.corsairs.models.MainMenuWorld;
 
 /**
  * Created by Петр on 26.07.2017.
- *
+ * <p>
  * Screen with the main menu.
  */
 
@@ -18,9 +18,9 @@ public class MainMenuScreen extends AppScreen
 
 	private static final float MAX_FPS = 60;
 	@SuppressWarnings("CanBeFinal")
-	public int width;
+	private int width;
 	@SuppressWarnings("CanBeFinal")
-	public int height;
+	private int height;
 	private float time;
 
 	@SuppressWarnings("CanBeFinal")

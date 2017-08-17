@@ -14,7 +14,7 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
- *
+ * <p>
  * Player on the game screen.
  */
 public class Player extends Actor

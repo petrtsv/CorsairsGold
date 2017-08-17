@@ -19,7 +19,7 @@ import site.petrtsv.corsairs.pools.ShellsPool;
 
 /**
  * Created by Петр on 04.07.2017.
- *
+ * <p>
  * Shell on the game screen.
  */
 public class Shell extends Actor implements Destructible

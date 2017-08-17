@@ -9,7 +9,7 @@ import site.petrtsv.corsairs.groups.ShellsGroup;
 
 /**
  * Created by Петр on 21.06.2017.
- *
+ * <p>
  * Class, that stores unused shells.
  */
 public class ShellsPool

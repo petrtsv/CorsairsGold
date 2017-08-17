@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 /**
  * Created by Петр on 07.08.2017.
- *
+ * <p>
  * Record label.
  */
 

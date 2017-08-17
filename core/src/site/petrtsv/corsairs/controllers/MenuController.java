@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.models.MenuWorld;
 
 /**
  * Created by Петр on 26.07.2017.
- *
+ * <p>
  * Class, that process input in the menu.
  */
 

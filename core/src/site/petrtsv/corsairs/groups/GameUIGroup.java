@@ -6,7 +6,6 @@ import com.badlogic.gdx.utils.Disposable;
 
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
 import site.petrtsv.corsairs.actors.ui.labels.LowerLabel;
-import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.models.Model;
 
 /**
@@ -17,13 +16,11 @@ import site.petrtsv.corsairs.models.Model;
 public class GameUIGroup extends UIGroup implements Disposable
 {
 	@SuppressWarnings("CanBeFinal")
-	private GameWorld world;
-	@SuppressWarnings("CanBeFinal")
 	private Array<GameButton> buttons;
 	@SuppressWarnings("CanBeFinal")
 	private LowerLabel lowerLabel;
 
-	public GameUIGroup(GameWorld world)
+	public GameUIGroup(Model world)
 	{
 		this.world = world;
 		setX(0);

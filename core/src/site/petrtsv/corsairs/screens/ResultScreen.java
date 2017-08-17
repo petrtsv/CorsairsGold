@@ -17,12 +17,7 @@ import site.petrtsv.corsairs.models.ResultWorld;
 public class ResultScreen extends AppScreen
 {
 	private static final float MAX_FPS = 60;
-	@SuppressWarnings("CanBeFinal")
-	private int width;
-	@SuppressWarnings("CanBeFinal")
-	private int height;
-	@SuppressWarnings("CanBeFinal")
-	private Corsairs game;
+
 	private float time;
 	@SuppressWarnings("CanBeFinal")
 	private GameWorld gameResult;

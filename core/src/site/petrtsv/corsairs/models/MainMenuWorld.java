@@ -1,8 +1,6 @@
 package site.petrtsv.corsairs.models;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
@@ -13,21 +11,15 @@ import site.petrtsv.corsairs.screens.MainMenuScreen;
 
 /**
  * Created by Петр on 26.07.2017.
- *
+ * <p>
  * Model of the main menu.
  */
 
 public class MainMenuWorld extends MenuWorld
 {
-	@SuppressWarnings("CanBeFinal")
-	private MainMenuScreen screen;
-	private OrthographicCamera camera;
 
 	@SuppressWarnings("CanBeFinal")
 	private ShapeRenderer shapeRenderer;
-
-	@SuppressWarnings("CanBeFinal")
-	private UIGroup uiGroup;
 
 	public MainMenuWorld(MainMenuScreen screen)
 	{
@@ -45,12 +37,6 @@ public class MainMenuWorld extends MenuWorld
 		setZIndices();
 	}
 
-	private void initializeCamera()
-	{
-		camera = new OrthographicCamera(screen.width, screen.height);
-		camera.position.set(new Vector2(0, 0), 0);
-		camera.update();
-	}
 
 	public UIGroup getUIGroup()
 	{

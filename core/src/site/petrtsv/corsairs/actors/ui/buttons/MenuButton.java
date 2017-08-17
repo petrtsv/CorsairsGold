@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import site.petrtsv.corsairs.groups.UIGroup;
 import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
-import site.petrtsv.corsairs.models.Model;
 import site.petrtsv.corsairs.screens.AppScreen;
 import site.petrtsv.corsairs.screens.MainMenuScreen;
 
@@ -22,10 +21,6 @@ import site.petrtsv.corsairs.screens.MainMenuScreen;
 public class MenuButton extends GameButton
 {
 	@SuppressWarnings("CanBeFinal")
-	private Model world;
-	@SuppressWarnings("CanBeFinal")
-	private UIGroup group;
-	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
 	@SuppressWarnings("CanBeFinal")
 	private TextureRegion pressedRegion;
@@ -35,22 +30,13 @@ public class MenuButton extends GameButton
 
 	public MenuButton(UIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
 	{
-		this.group = group;
-		this.world = group.getWorld();
-		setX(x);
-		setY(y);
+		super(group, x, y);
 		usualRegion = TextureManager.getInstance().getTextureRegion("menu_button_notpressed");
 		pressedRegion = TextureManager.getInstance().getTextureRegion("menu_button_pressed");
 		setSize(usualRegion.getRegionWidth(), usualRegion.getRegionHeight());
 
 		setTouchable(Touchable.enabled);
-		if (AudioManager.getInstance().getVolume() == 0)
-		{
-			setState(ButtonState.PRESSED);
-		} else
-		{
-			setState(ButtonState.NOTPRESSED);
-		}
+		setState(ButtonState.NOTPRESSED);
 		pointer = -1;
 	}
 
@@ -58,7 +44,6 @@ public class MenuButton extends GameButton
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
-
 		if (!batch.isDrawing())
 		{
 			batch.begin();

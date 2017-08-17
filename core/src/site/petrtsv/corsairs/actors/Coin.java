@@ -17,7 +17,7 @@ import site.petrtsv.corsairs.pools.CoinsPool;
 
 /**
  * Created by Петр on 06.07.2017.
- *
+ * <p>
  * Coin on the game screen.
  */
 public class Coin extends Actor implements Destructible

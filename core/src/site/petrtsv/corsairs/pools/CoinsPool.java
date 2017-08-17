@@ -8,7 +8,7 @@ import site.petrtsv.corsairs.groups.CoinsGroup;
 
 /**
  * Created by Петр on 06.07.2017.
- *
+ * <p>
  * Pool, that contain unused coins.
  */
 public class CoinsPool

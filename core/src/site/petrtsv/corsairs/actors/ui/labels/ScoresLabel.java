@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 06.07.2017.
- *
+ * <p>
  * Scores label.
  */
 public class ScoresLabel extends GameLabel

@@ -11,7 +11,7 @@ import site.petrtsv.corsairs.pools.CoinsPool;
 
 /**
  * Created by Петр on 08.07.2017.
- *
+ * <p>
  * Group, that control coins during the game.
  */
 public class CoinsGroup extends Group implements Disposable

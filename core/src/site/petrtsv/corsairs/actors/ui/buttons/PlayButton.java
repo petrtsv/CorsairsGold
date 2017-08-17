@@ -9,22 +9,17 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import site.petrtsv.corsairs.groups.UIGroup;
 import site.petrtsv.corsairs.managers.AudioManager;
 import site.petrtsv.corsairs.managers.TextureManager;
-import site.petrtsv.corsairs.models.Model;
 import site.petrtsv.corsairs.screens.AppScreen;
 import site.petrtsv.corsairs.screens.GameScreen;
 
 /**
  * Created by Петр on 25.07.2017.
- *
+ * <p>
  * Play button.
  */
 
 public class PlayButton extends GameButton
 {
-	@SuppressWarnings("CanBeFinal")
-	private Model world;
-	@SuppressWarnings("CanBeFinal")
-	private UIGroup group;
 	@SuppressWarnings("CanBeFinal")
 	private TextureRegion usualRegion;
 	@SuppressWarnings("CanBeFinal")
@@ -35,10 +30,7 @@ public class PlayButton extends GameButton
 
 	public PlayButton(UIGroup group, @SuppressWarnings("SameParameterValue") int x, @SuppressWarnings("SameParameterValue") int y)
 	{
-		this.group = group;
-		this.world = group.getWorld();
-		setX(x);
-		setY(y);
+		super(group, x, y);
 		usualRegion = TextureManager.getInstance().getTextureRegion("play_button");
 		pressedRegion = TextureManager.getInstance().getTextureRegion("play_button_pressed");
 		setSize(usualRegion.getRegionWidth(), usualRegion.getRegionHeight());

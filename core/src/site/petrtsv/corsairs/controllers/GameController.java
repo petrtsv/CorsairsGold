@@ -10,7 +10,7 @@ import site.petrtsv.corsairs.models.GameWorld;
 
 /**
  * Created by Петр on 04.07.2017.
- *
+ * <p>
  * Class, that process input during the game.
  */
 public class GameController implements InputProcessor

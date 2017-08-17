@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * Created by Петр on 10.07.2017.
- *
+ * <p>
  * Class, that save and load game data.
  */
 public class SaveManager
