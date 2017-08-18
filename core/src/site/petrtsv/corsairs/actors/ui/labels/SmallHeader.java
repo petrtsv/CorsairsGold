@@ -16,7 +16,6 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 public class SmallHeader extends GameLabel
 {
-	private static final int SHADOW_OFFSET = 2;
 	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
 	private Stage world;
 	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
@@ -74,9 +73,4 @@ public class SmallHeader extends GameLabel
 		return color;
 	}
 
-	@Override
-	protected int getShadowOffset()
-	{
-		return SHADOW_OFFSET;
-	}
 }

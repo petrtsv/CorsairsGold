@@ -43,14 +43,14 @@
   },
   {
     "name": "explosion1",
-    "x": 302,
+    "x": 303,
     "y": 0,
     "width": 60,
     "height": 60
   },
   {
     "name": "explosion2",
-    "x": 362,
+    "x": 363,
     "y": 0,
     "width": 74,
     "height": 74

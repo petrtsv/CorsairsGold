@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 
 import site.petrtsv.corsairs.Corsairs;
 import site.petrtsv.corsairs.controllers.MenuController;
-import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.models.ResultWorld;
 
 /**
@@ -20,13 +19,13 @@ public class ResultScreen extends AppScreen
 
 	private float time;
 	@SuppressWarnings("CanBeFinal")
-	private GameWorld gameResult;
+	private int gameResult;
 	@SuppressWarnings("CanBeFinal")
 	private MenuController controller;
 	@SuppressWarnings("CanBeFinal")
 	private ResultWorld model;
 
-	public ResultScreen(Corsairs game, int width, int height, GameWorld gameResult)
+	public ResultScreen(Corsairs game, int width, int height, int gameResult)
 	{
 		this.game = game;
 		this.width = width;
@@ -59,7 +58,7 @@ public class ResultScreen extends AppScreen
 
 	}
 
-	public GameWorld getGameResult()
+	public int getGameResult()
 	{
 		return gameResult;
 	}
@@ -92,7 +91,7 @@ public class ResultScreen extends AppScreen
 	@Override
 	public void dispose()
 	{
-
+		model.dispose();
 	}
 
 	@Override

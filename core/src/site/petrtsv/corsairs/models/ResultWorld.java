@@ -18,14 +18,12 @@ import site.petrtsv.corsairs.screens.ResultScreen;
 
 public class ResultWorld extends MenuWorld
 {
-	@SuppressWarnings("CanBeFinal")
-	private ShapeRenderer shapeRenderer;
 
 	@SuppressWarnings("CanBeFinal")
 	private BigSail sail;
 
 	@SuppressWarnings("CanBeFinal")
-	private GameWorld result;
+	private int result;
 
 	public ResultWorld(ResultScreen screen)
 	{
@@ -35,9 +33,6 @@ public class ResultWorld extends MenuWorld
 		initializeCamera();
 		setViewport(new ScalingViewport(Scaling.stretch, camera.viewportWidth,
 				camera.viewportHeight, camera));
-		shapeRenderer = new ShapeRenderer();
-		shapeRenderer.setAutoShapeType(true);
-		shapeRenderer.setProjectionMatrix(getCamera().combined);
 
 		uiGroup = new ResultUIGroup(this, getGameResult());
 		addActor(uiGroup);
@@ -53,21 +48,21 @@ public class ResultWorld extends MenuWorld
 		return uiGroup;
 	}
 
+	@Override
+	public ShapeRenderer getShapeRenderer()
+	{
+		return null;
+	}
+
 	private void setZIndices()
 	{
 		sail.setZIndex(1);
 		uiGroup.setZIndex(5);
 	}
 
-	private GameWorld getGameResult()
+	private int getGameResult()
 	{
 		return result;
-	}
-
-	@Override
-	public ShapeRenderer getShapeRenderer()
-	{
-		return shapeRenderer;
 	}
 
 	@Override

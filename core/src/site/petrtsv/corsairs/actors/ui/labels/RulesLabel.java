@@ -17,7 +17,6 @@ import site.petrtsv.corsairs.managers.FontManager;
 
 public class RulesLabel extends GameLabel
 {
-	private static final int SHADOW_OFFSET = 2;
 	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
 	private Stage world;
 	@SuppressWarnings({"CanBeFinal", "unused", "FieldCanBeLocal"})
@@ -89,9 +88,4 @@ public class RulesLabel extends GameLabel
 		this.color = color;
 	}
 
-	@Override
-	protected int getShadowOffset()
-	{
-		return SHADOW_OFFSET;
-	}
 }

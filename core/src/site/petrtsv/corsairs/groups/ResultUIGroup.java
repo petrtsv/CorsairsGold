@@ -11,7 +11,6 @@ import site.petrtsv.corsairs.actors.ui.labels.LargeHeader;
 import site.petrtsv.corsairs.actors.ui.labels.RecordLabel;
 import site.petrtsv.corsairs.actors.ui.labels.ResultLabel;
 import site.petrtsv.corsairs.managers.SaveManager;
-import site.petrtsv.corsairs.models.GameWorld;
 import site.petrtsv.corsairs.models.Model;
 
 /**
@@ -35,7 +34,7 @@ public class ResultUIGroup extends UIGroup
 	@SuppressWarnings({"CanBeFinal", "FieldCanBeLocal"})
 	private RecordLabel recordLabel;
 
-	public ResultUIGroup(Model world, GameWorld gameResult)
+	public ResultUIGroup(Model world, int gameResult)
 	{
 		this.world = world;
 		setX(0);
@@ -43,12 +42,11 @@ public class ResultUIGroup extends UIGroup
 		buttons = new Array<GameButton>();
 		replayButton = new ReplayButton(this, 0, -125);
 		menuButton = new MenuButton(this, 0, -250);
-		int result = gameResult.getScore();
 		int record = SaveManager.getInstance().getRecord();
-		resultLabel = new ResultLabel(this, result, 25);
+		resultLabel = new ResultLabel(this, gameResult, 25);
 		Color special = UIGroup.SPECIAL_UI;
 		header = new LargeHeader(this, 300, "GAME OVER", special);
-		recordLabel = new RecordLabel(this, Color.WHITE, special, -20, result, record);
+		recordLabel = new RecordLabel(this, Color.WHITE, special, -20, gameResult, record);
 		buttons.add(replayButton);
 		buttons.add(menuButton);
 		addActor(replayButton);

@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 abstract class GameLabel extends Actor
 {
-	private static final int SHADOW_OFFSET = 1;
+	private static final int SHADOW_OFFSET = 2;
 	private static final Color SHADOW_COLOR = Color.GRAY;
 
 	private boolean isCenteredX = false;

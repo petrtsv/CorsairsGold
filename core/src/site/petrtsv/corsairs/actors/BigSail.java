@@ -47,7 +47,7 @@ public class BigSail extends Actor
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
-		if (world.getShapeRenderer().isDrawing())
+		if (world.getShapeRenderer() != null && world.getShapeRenderer().isDrawing())
 		{
 			world.getShapeRenderer().end();
 		}
