@@ -2,7 +2,6 @@ package site.petrtsv.corsairs.models;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
@@ -69,7 +68,7 @@ public class GameWorld extends Model
 		shapeRenderer.setProjectionMatrix(getCamera().combined);
 	}
 
-	public int getScore()
+	private int getScore()
 	{
 		return score;
 	}
@@ -90,6 +89,7 @@ public class GameWorld extends Model
 		shellSpawnPeriod = START_SHELL_SPAWN_PERIOD;
 		shellVelocity = START_SHELL_VELOCITY;
 		scoresLabel = new ScoresLabel(this, new Vector2(75, 350));
+		addActor(scoresLabel);
 		addActor(player);
 		coinsGroup = new CoinsGroup(this);
 		coinsCount = coinsGroup.placeCoins();
@@ -146,12 +146,6 @@ public class GameWorld extends Model
 	@Override
 	public void draw()
 	{
-		Batch batch = this.getBatch();
-		batch.setProjectionMatrix(camera.combined);
-		batch.begin();
-		scoresLabel.draw(batch, 1);
-		batch.end();
-
 		shapeRenderer.begin();
 		shapeRenderer.set(ShapeRenderer.ShapeType.Line);
 		shapeRenderer.setColor(Color.WHITE);
@@ -196,7 +190,7 @@ public class GameWorld extends Model
 	private void onGameOver()
 	{
 		Screen newScreen = new ResultScreen(screen.getGame(), screen.getWidth(),
-				screen.getHeight(), this);
+				screen.getHeight(), getScore());
 		screen.newScreen(newScreen);
 	}
 
