@@ -82,4 +82,10 @@ public class LowerLabel extends GameLabel
 	{
 		return color;
 	}
+
+	@Override
+	public void setColor(Color color)
+	{
+		this.color = color;
+	}
 }

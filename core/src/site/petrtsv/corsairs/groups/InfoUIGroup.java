@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Array;
 
 import site.petrtsv.corsairs.actors.ui.buttons.GameButton;
 import site.petrtsv.corsairs.actors.ui.buttons.MenuButton;
+import site.petrtsv.corsairs.actors.ui.labels.LowerLabel;
 import site.petrtsv.corsairs.actors.ui.labels.RulesLabel;
 import site.petrtsv.corsairs.actors.ui.labels.SmallHeader;
 import site.petrtsv.corsairs.models.Model;
@@ -24,6 +25,7 @@ public class InfoUIGroup extends UIGroup
 
 	@SuppressWarnings({"FieldCanBeLocal", "CanBeFinal"})
 	private RulesLabel rulesLabel;
+	private LowerLabel lowerLabel;
 
 	public InfoUIGroup(Model world)
 	{
@@ -47,6 +49,12 @@ public class InfoUIGroup extends UIGroup
 				"3) Collect coins.";
 		rulesLabel = new RulesLabel(this, 225, rules, UIGroup.MAIN_UI);
 		addActor(rulesLabel);
+
+		lowerLabel = new LowerLabel(this);
+		lowerLabel.setText("Good game! ");
+		lowerLabel.getPosition().y = -125;
+		lowerLabel.setColor(UIGroup.SPECIAL_UI);
+		addActor(lowerLabel);
 
 		setTouchable(Touchable.enabled);
 	}

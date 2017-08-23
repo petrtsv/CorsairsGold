@@ -55,7 +55,8 @@ public class ScoresLabel extends GameLabel
 	public void setValue(int value)
 	{
 		this.value = value;
-		this.text = "Score: " + value;
+		this.text = "Score: " + value + "\n" +
+				"Level " + (value / 38 + 1);
 		centerX(0);
 	}
 

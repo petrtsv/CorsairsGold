@@ -29,9 +29,9 @@ import site.petrtsv.corsairs.screens.ResultScreen;
 public class GameWorld extends Model
 {
 	public static final int RADIUS = 200;
-	private static final float START_SHELL_VELOCITY = 325;
+	private static final float START_SHELL_VELOCITY = 315;
 	private static final float SHELL_VELOCITY_MULT = 1.025f;
-	private static final float START_SHELL_SPAWN_PERIOD = 0.325f;
+	private static final float START_SHELL_SPAWN_PERIOD = 0.375f;
 	private static final float SHELL_SPAWN_PERIOD_MULT = 0.975f;
 
 	private Player player;
