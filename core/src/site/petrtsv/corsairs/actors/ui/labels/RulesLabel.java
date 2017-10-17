@@ -40,7 +40,7 @@ public class RulesLabel extends GameLabel
 		this.position = new Vector2();
 		this.color = color;
 		this.position.y = y;
-		font = FontManager.getInstance().getMainUIFont();
+		font = FontManager.getInstance().getSmallUI();
 		centerX(0);
 	}
 

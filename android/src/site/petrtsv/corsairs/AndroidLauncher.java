@@ -44,9 +44,9 @@ public class AndroidLauncher extends AndroidApplication
 			AdView adView = new AdView(this);
 			adView.setAdSize(AdSize.BANNER);
 			adView.setAdUnitId("ca-app-pub-1082660632042086/7971741409");
-//			AdRequest adRequest = new AdRequest.Builder()
-//					.addTestDevice("44EA965F4537E5973C615BEA03642AEB").build();
-			AdRequest adRequest = new AdRequest.Builder().build();
+			AdRequest adRequest = new AdRequest.Builder()
+					.addTestDevice("44EA965F4537E5973C615BEA03642AEB").build();
+//			AdRequest adRequest = new AdRequest.Builder().build();
 			adView.loadAd(adRequest);
 
 			RelativeLayout.LayoutParams adParams =

@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import site.petrtsv.corsairs.managers.SaveManager;
 import site.petrtsv.corsairs.managers.TextureManager;
 import site.petrtsv.corsairs.models.GameWorld;
 
@@ -52,7 +53,8 @@ public class Player extends Actor
 		this.radius = new Vector2(1, 1).setAngle(angle).setLength(radius);
 		position = new Vector2(rotationPosition.cpy().add(this.radius));
 		setPosition(position.x, position.y);
-		region = TextureManager.getInstance().getTextureRegion("pirate_ship");
+		SaveManager saveManager = SaveManager.getInstance();
+		region = TextureManager.getInstance().getTextureRegion(saveManager.getShipSpriteName());
 		try
 		{
 			sprite = new Sprite(region);

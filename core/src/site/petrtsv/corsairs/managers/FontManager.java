@@ -24,10 +24,9 @@ public class FontManager
 	@SuppressWarnings("FieldCanBeLocal")
 	private final String RALEWAY_BOLD_PATH = "fonts/raleway_bold.ttf";
 	private BitmapFont mainUI;
+	private BitmapFont smallUI;
 	private BitmapFont largeHeader;
 	private BitmapFont smallHeader;
-
-
 	private FontManager()
 	{
 	}
@@ -35,6 +34,11 @@ public class FontManager
 	public static FontManager getInstance()
 	{
 		return ourInstance;
+	}
+
+	public BitmapFont getSmallUI()
+	{
+		return smallUI;
 	}
 
 	public void loadFonts()
@@ -49,6 +53,14 @@ public class FontManager
 		mainUI.setColor(UIGroup.MAIN_UI);
 		mainUI.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear,
 				Texture.TextureFilter.Linear);
+
+		parameter.size = 28;
+		smallUI = generator.generateFont(parameter);
+		smallUI.getData().lineHeight = 35;
+		smallUI.setColor(UIGroup.MAIN_UI);
+		smallUI.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear,
+				Texture.TextureFilter.Linear);
+
 		generator.dispose();
 
 		generator = new FreeTypeFontGenerator(Gdx.files.internal(RALEWAY_BOLD_PATH));

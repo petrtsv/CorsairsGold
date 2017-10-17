@@ -7,9 +7,44 @@
     "height": 34
   },
   {
-    "name": "pirate_ship",
+    "name": "pirate_ship_00",
     "x": 24,
     "y": 0,
+    "width": 66,
+    "height": 113
+  },
+  {
+    "name": "pirate_ship_01",
+    "x": 24,
+    "y": 114,
+    "width": 66,
+    "height": 113
+  },
+  {
+    "name": "pirate_ship_02",
+    "x": 24,
+    "y": 228,
+    "width": 66,
+    "height": 113
+  },
+  {
+    "name": "pirate_ship_03",
+    "x": 24,
+    "y": 342,
+    "width": 66,
+    "height": 113
+  },
+  {
+    "name": "pirate_ship_04",
+    "x": 24,
+    "y": 456,
+    "width": 66,
+    "height": 113
+  },
+  {
+    "name": "pirate_ship_05",
+    "x": 24,
+    "y": 570,
     "width": 66,
     "height": 113
   },

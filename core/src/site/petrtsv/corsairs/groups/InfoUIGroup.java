@@ -42,17 +42,20 @@ public class InfoUIGroup extends UIGroup
 		addActor(header);
 
 
-		String rules = "Rules of the game:\n\n" +
-				"1) Touch the screen to change \n" +
+		String rules = "" +
+				"- Touch the screen to change \n" +
 				"   ship's direction.\n\n" +
-				"2) Avoid fireballs.\n\n" +
-				"3) Collect coins.";
+				"- Avoid fireballs.\n\n" +
+				"- Collect coins to increase \n" +
+				"   your score.\n\n" +
+				"- As the record increases, \n" +
+				"   your ship changes.";
 		rulesLabel = new RulesLabel(this, 225, rules, UIGroup.MAIN_UI);
 		addActor(rulesLabel);
 
 		lowerLabel = new LowerLabel(this);
-		lowerLabel.setText("Good game! ");
-		lowerLabel.getPosition().y = -125;
+		lowerLabel.setText("Good luck! ");
+		lowerLabel.getPosition().y = -150;
 		lowerLabel.setColor(UIGroup.SPECIAL_UI);
 		addActor(lowerLabel);
 

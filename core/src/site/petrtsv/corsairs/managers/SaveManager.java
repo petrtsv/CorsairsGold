@@ -15,6 +15,8 @@ public class SaveManager
 {
 	@SuppressWarnings("CanBeFinal")
 	private static SaveManager ourInstance = new SaveManager();
+	private String SHIP_SPRITE_NAME_PREFIX = "pirate_ship_0";
+	private int MAX_SHIP_NUM = 5;
 
 	private SaveManager()
 	{
@@ -65,5 +67,11 @@ public class SaveManager
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public String getShipSpriteName()
+	{
+		int record = getRecord();
+		return SHIP_SPRITE_NAME_PREFIX + Math.min(MAX_SHIP_NUM, record / (36 * 2));
 	}
 }
